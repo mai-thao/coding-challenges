@@ -1,5 +1,21 @@
 import java.util.Scanner;
 
+/**
+ * Takes an encrypted string and returns the original, unencrypted string.
+ * 
+ * First, find the shift amount and if using that amount aligns with the
+ * original "knownWord" input string then that is the correct amount and
+ * the string can be unencrypted successfully. Otherwise, the encrypted
+ * string cannot be deciphered.
+ * 
+ * Example-
+ * INPUT:
+ *     ciphertext = "Eqfkpi vguvu ctg hwp!"
+ *     knownWord = "tests"
+ * 
+ * OUTPUT:
+ *    "Coding tests are fun!"
+ */
 public class Decipher {
     public static String decipher(String ciphertext, String knownWord) {
         int shiftAmt = findShiftAmt(ciphertext, knownWord);
@@ -60,7 +76,6 @@ public class Decipher {
 //
 //        String ciphertext = "cdeb nqxg"; // abcz love
 //        String knownWord = "love";
-//
 //
 //        String ciphertext = "Eqfkpi vguvu ctg hwp cpf ejcnngpikpi!"; // abcz love
 //        String knownWord = "are";

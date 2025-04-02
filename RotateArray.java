@@ -1,5 +1,24 @@
 import java.util.Scanner;
 
+/**
+ * Takes a size and a 2D array and rotate it counter clockwise,
+ * in-place, without creating a new rotated array.
+ * 
+ * Example- 
+ * 
+ * INPUT:
+ * size = 3
+ * img  = 
+ *    8 2 3
+ *    2 9 1
+ *    9 0 6
+ * 
+ * OUTPUT:
+ *    3 1 6
+ *    2 9 0
+ *    8 2 9
+ */
+
 public class RotateImage {
     public static void rotate_image(int size, int[][] img) {
         if (size == 0) {
