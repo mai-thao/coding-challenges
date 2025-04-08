@@ -1,6 +1,7 @@
 import pandas as pd
 
-df = pd.read_csv('Spotify_2000.csv')
+# CSV file is stored in csv-files directory
+df = pd.read_csv('csv-files\Spotify_2000.csv')
 print(df)
 print(df.dtypes)
 
