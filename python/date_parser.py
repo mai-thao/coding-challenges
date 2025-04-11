@@ -1,3 +1,6 @@
+# Parses a date string into the format "DD/MM/YYYY"
+# date_str is the date to parse
+# day_first is a boolean whether to parse the day first or not, defaults to False
 def date_parser(date_str: str, day_first: bool = False) -> str:
     parts = date_str.replace("-", "/").replace(".", "/").split("/")
     if len(parts) != 3:

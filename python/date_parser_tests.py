@@ -1,6 +1,9 @@
 import pytest
 from date_parser import date_parser
 
+# To run, execute the command: `pytest -v` in the same directory (-v option is to print verbose)
+# If there are multiple test files, target this specific test with command: `pytest date_parser_tests.py -v`
+
 def test_date_parser_ymd():
   assert date_parser("2023-04-15") == "15/04/2023"
   assert date_parser("2023/4/15") == "15/04/2023"
