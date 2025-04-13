@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-file_name = 'Sales-Printing-Office-2023.csv'
+file_name = 'csv-files\Sales-Printing-Office-2023.csv'
 
 df = pd.read_csv(file_name)
 
