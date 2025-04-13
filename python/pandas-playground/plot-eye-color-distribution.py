@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 # matplotlib must be installed with command `pip install matplotlib`
 
+# Create a bar graph showcasing the percentage of eye colors by gender (dummy data)
 data = {
     'eye_color': ['Brown', 'Blue', 'Hazel', 'Green', 'Brown', 'Blue', 'Hazel', 'Green'],
     'gender': ['Male', 'Male', 'Male', 'Male', 'Female', 'Female', 'Female', 'Female'],
