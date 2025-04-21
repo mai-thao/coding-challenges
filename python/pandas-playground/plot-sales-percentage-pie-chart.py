@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Create a pie chart showcasing the percentage of sales by each customer (dummy data)
 # Learning pandas: dataframe and data manipulation/aggregation functions
-file_name = 'csv-files\Sales-Printing-Office-2023.csv'
+file_name = 'csv-files/Sales-Printing-Office-2023.csv'
 
 df = pd.read_csv(file_name)
 
