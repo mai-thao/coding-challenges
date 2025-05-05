@@ -1,6 +1,12 @@
 from collections import Counter
 
 def unique_characters(str1, str2):
+    """Find the character difference between two strings, ignoring whitespace characters.
+
+    This function removes duplicate characters from each string, excluding whitespace
+    characters (spaces, tabs, newlines). The order of characters in the output string is
+    not guaranteed.
+    """
     # Remove common whitespace characters from both strings
     str1 = str1.replace(" ", "").replace("\t", "").replace("\n", "")
     str2 = str2.replace(" ", "").replace("\t", "").replace("\n", "")
