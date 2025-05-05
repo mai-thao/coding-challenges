@@ -33,3 +33,24 @@ def unique_characters(str1, str2):
             unique_chars.extend([char] * counter2[char])
 
     return ''.join(unique_chars)
+
+# Test cases
+string1 = " This is a string. "
+string2 = "This is another string."
+difference = unique_characters(string1, string2)
+print(difference)  # Output should be permutation of: nother
+
+string1 = "hello worLd"
+string2 = "worLd"
+difference = unique_characters(string1, string2)
+print(difference)  # Output should be permutation of: hello
+
+string1 = "hello there world"
+string2 = "there worLd"
+difference = unique_characters(string1, string2)
+print(difference)  # Output should be permutation of: helloLl
+
+string1 = "\thel\nlo."
+string2 = "\thello!"
+difference = unique_characters(string1, string2)
+print(difference)  # Output should be permutation of: .!
