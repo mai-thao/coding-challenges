@@ -11,11 +11,32 @@ import java.util.HashSet;
  * 
  * nums = [1,2,3,4]
  * Output: false
- *
- * Time complexity: O(n) because looping whole array in worst case
- * Space complexity: O(n) because extra memory for HashSet & worst case storing all unique nums in it
  */
 class ContainsDuplicate {
+
+    /**
+     * Brute force solution for small input array
+     *
+     * Time complexity: O(n^2) because of nested loop where in worst case, looping through array twice
+     * Space complexity: O(1) because no extra dataset needed
+     */
+    public static boolean hasDuplicateBruteForce(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] == nums[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Best solution for large input array
+     *
+     * Time complexity: O(n) because looping whole array in worst case
+     * Space complexity: O(n) because extra memory for HashSet & worst case storing all unique nums in it
+     */
     public static boolean hasDuplicate(int[] nums) {
         HashSet<Integer> uniqueNums = new HashSet<>(); // HashSet contains only unique elem by default
         for (int i = 0; i < nums.length; i++) {
