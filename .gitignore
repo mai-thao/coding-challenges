@@ -1,0 +1,9 @@
+# Ignore all .iml files anywhere
+*.iml
+
+# Ignore all .idea folders anywhere
+*.idea/
+
+# Ignore these specific directories
+out/
+python/__pycache__/
