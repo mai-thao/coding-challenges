@@ -1,0 +1,42 @@
+import java.util.Arrays;
+import java.util.HashMap;
+
+/**
+ * Given an array of integers and target integer, return the indices of the
+ * two numbers that add up to the target. There will be exactly one solution.
+ * The same element may not be used twice. The answer can be in any order.
+ *
+ * Examples:
+ * nums = [2,7,11,15], target = 9
+ * Output: [0,1]
+ *
+ * nums = [3,2,4], target = 6
+ * Output: [1,2]
+ *
+ * nums = [3,3], target = 6
+ * Output: [0,1]
+ *
+ * Time complexity: O(n) because worst case solutions are last elements so looping entire array
+ * Space complexity: O(n) because need extra HashMap where worst case stores all elements
+ */
+class TwoSum {
+    public static int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> numIdx = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (numIdx.containsKey(complement)) {
+                return new int[]{i, numIdx.get(complement)};
+            } else {
+                numIdx.put(nums[i], i);
+            }
+        }
+        throw new IllegalArgumentException("There should be exactly one solution!");
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(twoSum(new int[]{2,7,11,15}, 9)));
+        System.out.println(Arrays.toString(twoSum(new int[]{3,2,4}, 6)));
+        System.out.println(Arrays.toString(twoSum(new int[]{3,3}, 6)));
+        System.out.println(Arrays.toString(twoSum(new int[]{3,2,3}, 6)));
+    }
+}
