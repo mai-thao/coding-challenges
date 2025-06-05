@@ -18,7 +18,7 @@ import java.util.HashMap;
  */
 class TwoSum {
     /**
-     * Time complexity: O(n^2) because checking array twice with nested loop where worst case answers are the last elements
+     * Time complexity: O(n^2) because checking every possible num combination with nested loop where worst case answers are the last elements
      * Space complexity: O(1) no extra dataset needed
      */
     public static int[] twoSumBruteForce(int[] nums, int target) {

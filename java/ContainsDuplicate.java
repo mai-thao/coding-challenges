@@ -17,7 +17,7 @@ class ContainsDuplicate {
     /**
      * Brute force solution for small input array
      *
-     * Time complexity: O(n^2) because of nested loop where in worst case, looping through array twice
+     * Time complexity: O(n^2) because of nested loop where in worst case, looping through every possible num combinations
      * Space complexity: O(1) because no extra dataset needed
      */
     public static boolean hasDuplicateBruteForce(int[] nums) {
