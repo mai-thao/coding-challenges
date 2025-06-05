@@ -22,11 +22,10 @@ class ValidPalindrome {
         StringBuilder sb = new StringBuilder();
         String lowercase = s.toLowerCase();
         for (char c: lowercase.toCharArray()) {
-            if (c != ' ' && c != ',' && c != ':' && c != '.') { // Need to refine this, too much hardcoding cases
+            if (Character.isLetterOrDigit(c)) {
                 sb.append(c);
             }
         }
-        if (sb.isEmpty()) return true; // Edge case where input String was empty spaces
         String cleaned = sb.toString();
         int i = 0;
         int j = cleaned.length()-1;
