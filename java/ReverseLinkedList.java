@@ -35,5 +35,21 @@ public class ReverseLinkedList {
     }
 
     public static void main(String[] args) {
+        // Test 1
+        ListNode node1 = new ListNode(5);
+        ListNode node2 = new ListNode(4, node1);
+        ListNode node3 = new ListNode(3, node2);
+        ListNode node4 = new ListNode(2, node3);
+        ListNode node5 = new ListNode(1, node4);
+        printNodes(node5);
+        ListNode reversedNodes = reverseList(node5);
+        printNodes(reversedNodes);
+
+        // Test 2
+        ListNode node6 = new ListNode(2);
+        ListNode node7 = new ListNode(1, node6);
+        printNodes(node7);
+        reversedNodes = reverseList(node7);
+        printNodes(reversedNodes);
     }
 }
