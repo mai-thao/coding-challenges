@@ -1,8 +1,8 @@
 /**
  *  Given the heads of two sorted linked lists, merge them into one single sorted linked list. Return the head of the merged linked list.
  *
- *  Time complexity:
- *  Space complexity:
+ *  Time complexity: O(n + m) since traversing each node from both list once to build the merged list
+ *  Space complexity: O(1) because no extra datasets needed
  */
 public class MergeSortedLists {
     public static class ListNode {
@@ -13,28 +13,30 @@ public class MergeSortedLists {
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
 
+    // Builds a "new" tail list by "appending" the lower node from either list1 or list2
+    // Not truly appending (hence the quotations), just relinking nodes
     public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        if (list1 == null) return list2;
-        else if (list2 == null) return list1;
-        ListNode mergedHead = null;
+        ListNode mergedHead = new ListNode(-1);
+        ListNode tail = mergedHead;
+
         while (list1 != null && list2 != null) {
             if (list1.val <= list2.val) {
-                if (mergedHead == null) {
-                    mergedHead = list1;
-                }
-                ListNode temp = list1.next;
-                list1.next = list2;
-                list1 = temp;
+                tail.next = list1;
+                list1 = list1.next;
             } else {
-                if (mergedHead == null) {
-                    mergedHead = list2;
-                }
-                ListNode temp = list2.next;
-                list2.next = list1;
-                list2 = temp;
+                tail.next = list2;
+                list2 = list2.next;
             }
+            tail = tail.next;
         }
-        return mergedHead;
+
+        if (list1 != null) {
+            tail.next = list1;
+        } else {
+            tail.next = list2;
+        }
+
+        return mergedHead.next;
     }
 
     // Helper fxn to print the values of each node in order
