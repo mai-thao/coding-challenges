@@ -61,6 +61,7 @@ public class MergeSortedLists {
         printNodes(node6); // 1->3->4
         ListNode mergedNodes = mergeTwoLists(node3, node6);
         printNodes(mergedNodes); // 1->1->2->3->4->4
+        System.out.println();
 
         // Test 2
         // TODO: Causes infinite loop, fix this!
@@ -68,16 +69,16 @@ public class MergeSortedLists {
         ListNode node8 = new ListNode(4);
         ListNode node9 = new ListNode(2, node8);
         ListNode node10 = new ListNode(1, node9);
-        printNodes(node3); // 5
-        printNodes(node6); // 1->2->4
-        mergedNodes = mergeTwoLists(node3, node6);
+        printNodes(node7); // 5
+        printNodes(node10); // 1->2->4
+        mergedNodes = mergeTwoLists(node7, node10);
         printNodes(mergedNodes); // 1->2->4->5
+        System.out.println();
 
         // Test 3
-        ListNode node11 = null;
         ListNode node12 = new ListNode(1);
         printNodes(node12); // 1
-        mergedNodes = mergeTwoLists(node11, node12);
+        mergedNodes = mergeTwoLists(null, node12);
         printNodes(mergedNodes); // 1
     }
 }
