@@ -6,14 +6,28 @@
  * Space complexity:
  */
 public class MergeSortedArray {
+    // Used two-pointer technique
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
-        
+        int n1 = m - 1;
+        int n2 = n - 1;
+        int openSpace = m + n - 1;
+
+        while (n1 >= 0 && n2 >= 0) {
+            if (nums1[n1] < nums2[n2]) {
+                nums1[openSpace] = nums2[n2];
+                n2--;
+            } else {
+                nums1[openSpace] = nums1[n1];
+                n1--;
+            }
+            openSpace--;
+        }
     }
 
     public static void printArray(String text, int[] inputArr) {
         System.out.print(text);
         for (int intElem: inputArr) {
-            System.out.print(intElem + ',');
+            System.out.print(intElem + ",");
         }
     }
 
@@ -24,6 +38,7 @@ public class MergeSortedArray {
         int n = 3;
         printArray("Before: ", nums1);
         merge(nums1, m, nums2, n);
+        System.out.println();
         printArray("After: ", nums1);
     }
 }
