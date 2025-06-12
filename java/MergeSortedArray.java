@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Given two integer arrays sorted in non-decreasing order (nums1 and nums2) and two integers representing the number of elements in each array (m and n, respectively),
  * merge both arrays into a single sorted array in non-decreasing order. The length of nums1 is m + n so the final merged array should be inside nums1.
@@ -29,21 +31,13 @@ public class MergeSortedArray {
         }
     }
 
-    public static void printArray(String text, int[] inputArr) {
-        System.out.print(text);
-        for (int intElem: inputArr) {
-            System.out.print(intElem + " ");
-        }
-    }
-
     public static void main(String[] args) {
         int[] nums1 = new int[]{1,2,3,0,0,0};
         int[] nums2 = new int[]{2,5,6};
         int m = 3, n = 3;
-        printArray("Before: ", nums1);
+        System.out.println("Before: " + Arrays.toString(nums1));
         merge(nums1, m, nums2, n);
-        System.out.println();
-        printArray("After: ", nums1); // Should be: 1,2,2,3,5,6
+        System.out.println("After: " + Arrays.toString(nums1)); // Should be: 1,2,2,3,5,6
         System.out.println();
 
         // Edge case where first array is empty
@@ -52,19 +46,17 @@ public class MergeSortedArray {
         nums2 = new int[]{1};
         m = 0;
         n = 1;
-        printArray("Before: ", nums1);
+        System.out.println("Before: " + Arrays.toString(nums1));
         merge(nums1, m, nums2, n);
-        System.out.println();
-        printArray("After: ", nums1); // Should be: 1
+        System.out.println("After: " + Arrays.toString(nums1)); // Should be: 1
         System.out.println();
 
         nums1 = new int[]{1};
         nums2 = new int[]{};
         m = 1;
         n = 0;
-        printArray("Before: ", nums1);
+        System.out.println("Before: " + Arrays.toString(nums1));
         merge(nums1, m, nums2, n);
-        System.out.println();
-        printArray("After: ", nums1); // Should be: 1
+        System.out.println("After: " + Arrays.toString(nums1)); // Should be: 1
     }
 }
