@@ -1,3 +1,9 @@
+/**
+ *  Given the head of a linked list, determine if it has a cycle in it.
+ *
+ *  Time complexity: O(n) because traversing the entire linked list
+ *  Space complexity: O(1) because no extra datasets needed
+ */
 public class LinkedListCycle {
     public static class ListNode {
         int val;
@@ -5,6 +11,7 @@ public class LinkedListCycle {
         ListNode(int val) { this.val = val; }
     }
 
+    // Uses slow and fast pointer pattern (aka Hare and Tortoise algorithm)
     public static boolean hasCycle(ListNode head) {
         if (head == null || head.next == null) return false;
         ListNode slow = head;
