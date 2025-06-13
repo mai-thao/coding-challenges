@@ -13,8 +13,8 @@ import java.util.Stack;
  * For operation "+", there will always be at least two previous scores on the record.
  * For operations "C" and "D", there will always be at least one previous score on the record.
  *
- * Time complexity:
- * Space complexity:
+ * Time complexity: O(n) since traversing each String in the array
+ * Space complexity: O(n) since created a Stack to hold the score integers
  */
 public class BaseballGame {
     public static int calculatePoints(String[] operations) {
@@ -44,10 +44,11 @@ public class BaseballGame {
     }
 
     public static void main(String[] args) {
-        System.out.println(calculatePoints(new String[]{"5","2","C","D","+"})); // 30
-        System.out.println(calculatePoints(new String[]{"5","-2","4","C","D","9","+","+"})); // 27
-        System.out.println(calculatePoints(new String[]{"1","C"})); // 0
-        System.out.println(calculatePoints(new String[]{"5","D"})); // 15
+        System.out.println(calculatePoints(new String[]{"5", "2", "C", "D", "+"})); // 30
+        System.out.println(calculatePoints(new String[]{"5", "-2", "4", "C", "D", "9", "+", "+"})); // 27
+        System.out.println(calculatePoints(new String[]{"1", "C"})); // 0
+        System.out.println(calculatePoints(new String[]{"5", "D"})); // 15
         System.out.println(calculatePoints(new String[]{"1"})); // 1
+        System.out.println(calculatePoints(new String[]{"5", "10", "15", "20"})); // 50
     }
 }
