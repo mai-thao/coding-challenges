@@ -64,7 +64,6 @@ public class MergeSortedLists {
         System.out.println();
 
         // Test 2
-        // TODO: Causes infinite loop, fix this!
         ListNode node7 = new ListNode(5);
         ListNode node8 = new ListNode(4);
         ListNode node9 = new ListNode(2, node8);
