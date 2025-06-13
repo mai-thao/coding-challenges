@@ -21,8 +21,8 @@ public class FirstUniqueCharacter {
     }
 
     public static void main(String[] args) {
-        System.out.println(firstUniqChar("helloworld")); // h at idx 0
-        System.out.println(firstUniqChar("hellohelloworld")); // w at idx 10
+        System.out.println(firstUniqChar("helloworld")); // h at index 0
+        System.out.println(firstUniqChar("hellohelloworld")); // w at index 10
         System.out.println(firstUniqChar("helloworldhelloworld")); // -1
         System.out.println(firstUniqChar("aabb")); // -1
     }
