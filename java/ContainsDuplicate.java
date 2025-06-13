@@ -39,11 +39,11 @@ class ContainsDuplicate {
      */
     public static boolean hasDuplicate(int[] nums) {
         HashSet<Integer> uniqueNums = new HashSet<>(); // HashSet contains only unique elem by default
-        for (int i = 0; i < nums.length; i++) {
-            if (uniqueNums.contains(nums[i])) { // Dupe found
+        for (int num : nums) {
+            if (uniqueNums.contains(num)) { // Dupe found
                 return true;
             } else {
-                uniqueNums.add(nums[i]);
+                uniqueNums.add(num);
             }
         }
         return false; // Reached the end so must not have dupes

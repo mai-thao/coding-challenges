@@ -18,7 +18,6 @@ import java.util.Scanner;
  *    2 9 0
  *    8 2 9
  */
-
 public class RotateArray {
     public static void rotate_arr(int size, int[][] arr) {
         if (size == 0) {

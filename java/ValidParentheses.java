@@ -57,6 +57,5 @@ public class ValidParentheses {
         System.out.println(isValidParentheses("(")); // false
         System.out.println(isValidParentheses("}")); // false
         System.out.println(isValidParentheses("}}")); // false
-
     }
 }
