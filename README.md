@@ -2,7 +2,33 @@
 My solutions to various coding challenges and puzzles. Think of Leetcode-style prompts solved in Java or Python. Exercises different data structure and algorithms.
 
 ### Data Structure
+```mermaid
+flowchart TD
+  A(Data Structures)
+    
+  A --> B1(Linear)
+  A --> B2(Non-Linear)
 
+  B1 --> C1(Static)
+  B1 --> C2(Dynamic)
+
+  C1 --> D1(Array)
+  C2 --> D2(Array List)
+  C2 --> D3(Linked List)
+  C2 --> D4(Stack)
+  C2 --> D5(Queue)
+
+  B2 --> E1(Tree)
+  B2 --> E2(Graph)
+  B2 --> E3(Hash-based)
+
+  E1 --> F1(Binary Tree)
+  E1 --> F2(BST)
+  E1 --> F4(Trie)
+
+  E3 --> H1(Hash Table)
+  E3 --> H2(Hash Map)
+```
 
 ### Algorithms
 Not an extensive list, but includes:
