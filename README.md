@@ -29,6 +29,8 @@ flowchart TD
   E3 --> H1(Hash Table)
   E3 --> H2(Hash Map)
 ```
+_Note: This awesome flowchart was created using [Mermaid](https://docs.mermaidchart.com/mermaid/intro). 
+Check it out, it's a charting and diagraming tool with text & code!_
 
 ### Algorithms
 Not an extensive list, but includes:
