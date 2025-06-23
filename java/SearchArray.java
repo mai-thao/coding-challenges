@@ -18,7 +18,7 @@ public class SearchArray {
      * Time complexity: O(n) because traversing all numbers in the entire array
      * Space complexity: O(1) because no extra dataset needed
      */
-    public static int searchLinear(int[] nums, int target) {
+    public static int linearSearch(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == target) {
                 return i;
@@ -28,8 +28,8 @@ public class SearchArray {
     }
 
     public static void main(String[] args) {
-        System.out.println(searchLinear(new int[]{-1,0,3,5,9,12}, 9)); // 4
-        System.out.println(searchLinear(new int[]{-1,0,3,5,9,12}, 2)); // -1
-        System.out.println(searchLinear(new int[]{5}, 5)); // 0
+        System.out.println(linearSearch(new int[]{-1,0,3,5,9,12}, 9)); // 4
+        System.out.println(linearSearch(new int[]{-1,0,3,5,9,12}, 2)); // -1
+        System.out.println(linearSearch(new int[]{5}, 5)); // 0
     }
 }
