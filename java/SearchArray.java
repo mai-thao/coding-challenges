@@ -27,17 +27,21 @@ public class SearchArray {
         return -1;
     }
 
+    /**
+     * Time complexity: O(log n) because halving the array each time
+     * Space complexity: O(1) because no extra dataset needed
+     */
     public static int binarySearch(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
-        while (left < right) {
+        while (left <= right) {
             int mid = (left + right) / 2;
             if (nums[mid] == target) {
                 return mid;
             } else if (nums[mid] > target) {
-                right = mid - 1;
+                right = mid - 1; // Don't need to check mid again
             } else {
-                left = mid + 1;
+                left = mid + 1; // Don't need to check mid again
             }
         }
         return -1;
@@ -47,5 +51,11 @@ public class SearchArray {
         System.out.println(linearSearch(new int[]{-1,0,3,5,9,12}, 9)); // 4
         System.out.println(linearSearch(new int[]{-1,0,3,5,9,12}, 2)); // -1
         System.out.println(linearSearch(new int[]{5}, 5)); // 0
+
+        System.out.println();
+
+        System.out.println(binarySearch(new int[]{-1,0,3,5,9,12}, 9)); // 4
+        System.out.println(binarySearch(new int[]{-1,0,3,5,9,12}, 2)); // -1
+        System.out.println(binarySearch(new int[]{5}, 5)); // 0
     }
 }
