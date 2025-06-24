@@ -45,25 +45,26 @@ public class BestStockBuyingTime {
         int minProfit = Integer.MAX_VALUE;
         int maxProfit = 0;
         for (int price: prices) {
-            if (price < minProfit) {
-                minProfit = price;
-            }
-            if ((price - minProfit) > maxProfit) {
-                maxProfit = price - minProfit;
-            }
+            minProfit = Math.min(price, minProfit);
+            int profit = price - minProfit;
+            maxProfit = Math.max(profit, maxProfit);
         }
         return maxProfit;
     }
 
     public static void main(String[] args) {
-        System.out.println(maxProfitBruteForce(new int[]{7,1,5,3,6,4})); // 5
-        System.out.println(maxProfitBruteForce(new int[]{7,6,4,3,1})); // 0
-        System.out.println(maxProfitBruteForce(new int[]{2,4,1})); // 2
+        int[] arr1 = new int[]{7,1,5,3,6,4};
+        int[] arr2 = new int[]{7,6,4,3,1};
+        int[] arr3 = new int[]{2,4,1};
+
+        System.out.println(maxProfitBruteForce(arr1)); // 5
+        System.out.println(maxProfitBruteForce(arr2)); // 0
+        System.out.println(maxProfitBruteForce(arr3)); // 2
 
         System.out.println();
 
-        System.out.println(maxProfit(new int[]{7,1,5,3,6,4})); // 5
-        System.out.println(maxProfit(new int[]{7,6,4,3,1})); // 0
-        System.out.println(maxProfitBruteForce(new int[]{2,4,1})); // 2
+        System.out.println(maxProfit(arr1)); // 5
+        System.out.println(maxProfit(arr2)); // 0
+        System.out.println(maxProfit(arr3)); // 2
     }
 }
