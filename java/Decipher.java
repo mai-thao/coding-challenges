@@ -13,7 +13,6 @@ import java.util.Scanner;
  * INPUT:
  *     ciphertext = "Eqfkpi vguvu ctg hwp!"
  *     knownWord = "tests"
- * 
  * OUTPUT:
  *    "Coding tests are fun!"
  */

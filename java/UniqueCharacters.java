@@ -5,11 +5,11 @@ import java.util.HashSet;
  *
  * Examples-
  *
- * s = "abcde"
- * Output: true because each character is unique
+ * INPUT: s = "abcde"
+ * OUTPUT: true because each character is unique
  *
- * s = "abbcde"
- * Output: false because b is not unique
+ * INPUT: s = "abbcde"
+ * OUTPUT: false because b is not unique
  */
 class UniqueCharacters {
     /**

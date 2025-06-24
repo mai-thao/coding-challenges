@@ -6,10 +6,10 @@ import java.util.Stack;
  * Examples-
  *
  * INPUT: s = "(())()"
- * OUTPUT: ()
+ * OUTPUT: "()"
  *
  * INPUT: s = "(()(()))"
- * OUTPUT: ()(())
+ * OUTPUT: "()(())"
  *
  * Time complexity: O(n) because traversing each character in the String
  * Space complexity: O(n) because created extra StringBuilder and Stack datasets whose size grows separately

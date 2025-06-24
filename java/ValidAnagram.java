@@ -9,10 +9,10 @@ import java.util.Map;
  *
  * Examples-
  *
- * INPUT: s = anagram, t = nagaram
+ * INPUT: s = "anagram", t = "nagaram"
  * OUTPUT: true
  *
- * INPUT: s = rat, t = car
+ * INPUT: s = "rat", t = "car"
  * OUTPUT: false
  *
  * Time complexity: O(n) because looping through entire String (no nested loops)

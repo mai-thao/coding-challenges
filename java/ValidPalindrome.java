@@ -4,12 +4,12 @@
  * all non-alphanumeric characters are removed, and it still reads the same
  * forward and backward.
  *
- * Examples:
+ * Examples-
  *
  * INPUT: s = "A man, a plan, a canal: Panama"
  * OUTPUT: true because "amanaplanacanalpanama" is a palindrome
  *
- * INPUT: s = race a car
+ * INPUT: s = "race a car"
  * OUTPUT: false because "raceacar" is not a palindrome
  *
  * INPUT: s = " "
