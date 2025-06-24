@@ -5,10 +5,10 @@ import java.util.Stack;
  *
  * Examples-
  *
- * INPUT: "abbaca"
+ * INPUT: s = "abbaca"
  * OUTPUT: "ca" because we removed bb, then aa
  *
- * INPUT: "azxxzy"
+ * INPUT: s = "azxxzy"
  * OUTPUT: "ay" because we removed xx, then zz
  *
  * Time complexity: O(n) because we traverse the entire String

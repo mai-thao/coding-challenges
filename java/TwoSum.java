@@ -6,15 +6,16 @@ import java.util.HashMap;
  * two numbers that add up to the target. There will be exactly one solution.
  * The same element may not be used twice. The answer can be in any order.
  *
- * Examples:
- * nums = [2,7,11,15], target = 9
- * Output: [0,1]
+ * Examples-
  *
- * nums = [3,2,4], target = 6
- * Output: [1,2]
+ * INPUT: nums = [2,7,11,15], target = 9
+ * OUTPUT: [0,1]
  *
- * nums = [3,3], target = 6
- * Output: [0,1]
+ * INPUT: nums = [3,2,4], target = 6
+ * OUTPUT: [1,2]
+ *
+ * INPUT: nums = [3,3], target = 6
+ * OUTPUT: [0,1]
  */
 class TwoSum {
     /**

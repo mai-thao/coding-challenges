@@ -4,15 +4,16 @@ import java.util.HashSet;
  * Given an array nums containing n distinct numbers in the range [0, n],
  * return the only number in the range that is missing from the array.
  *
- * Examples:
- * nums = [3,0,1]
- * Output: 2 is the missing number
+ * Examples-
  *
- * nums = [0,1]
- * Output: 2 is the missing number
+ * INPUT: nums = [3,0,1]
+ * OUTPUT: 2 is the missing number
  *
- * nums = [9,6,4,2,3,5,7,0,1]
- * Output: 8 is the missing number
+ * INPUT: nums = [0,1]
+ * OUTPUT: 2 is the missing number
+ *
+ * INPUT: nums = [9,6,4,2,3,5,7,0,1]
+ * OUTPUT: 8 is the missing number
  */
 public class MissingNumber {
     /**

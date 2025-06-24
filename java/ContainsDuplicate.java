@@ -5,12 +5,13 @@ import java.util.HashSet;
  * Given an integer array nums, return true if any value appears 
  * more than once in the array, otherwise return false.
  * 
- * Examples:
- * nums = [1,2,3,3] 
- * Output: true
+ * Examples-
+ *
+ * INPUT: nums = [1,2,3,3]
+ * OUTPUT: true
  * 
- * nums = [1,2,3,4]
- * Output: false
+ * INPUT: nums = [1,2,3,4]
+ * OUTPUT: false
  */
 class ContainsDuplicate {
 

@@ -5,10 +5,10 @@
  *
  * Examples-
  *
- * INPUT: nums = [7,1,5,3,6,4]
+ * INPUT: prices = [7,1,5,3,6,4]
  * OUTPUT: 5 because buy on day 1 at $1 then sell on day 4 at $6 = $6 - $1 = $5
  *
- * INPUT: nums = [7,6,4,3,1]
+ * INPUT: prices = [7,6,4,3,1]
  * OUTPUT: 0 because day 4 is the min price at $1 but there are no more days left to sell
  *
  * INPUT: prices = [2,4,1]

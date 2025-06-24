@@ -10,17 +10,18 @@ import java.util.Stack;
  * - Every close bracket has a corresponding open bracket of the same type
  *
  * Examples:
- * s = "()"
- * Output: true
  *
- * s = "()[]{}"
- * Output: true
+ * INPUT: s = "()"
+ * OUTPUT: true
  *
- * s = "(]"
- * Output: false
+ * INPUT: s = "()[]{}"
+ * OUTPUT: true
  *
- * s = "([])"
- * Output: true
+ * INPUT: s = "(]"
+ * OUTPUT: false
+ *
+ * INPUT: s = "([])"
+ * OUTPUT: true
  *
  * Time complexity: O(n) because for loop is traversing entire String
  * Space complexity: O(n) because needed a stack where worst case it stores all open brackets

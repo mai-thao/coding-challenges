@@ -5,10 +5,10 @@ import java.util.Stack;
  *
  * Examples-
  *
- * INPUT: "(())()"
+ * INPUT: s = "(())()"
  * OUTPUT: ()
  *
- * INPUT: "(()(()))"
+ * INPUT: s = "(()(()))"
  * OUTPUT: ()(())
  *
  * Time complexity: O(n) because traversing each character in the String

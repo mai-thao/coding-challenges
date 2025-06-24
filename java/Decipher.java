@@ -8,7 +8,8 @@ import java.util.Scanner;
  * the string can be unencrypted successfully. Otherwise, the encrypted
  * string cannot be deciphered.
  * 
- * Example-
+ * Examples-
+ *
  * INPUT:
  *     ciphertext = "Eqfkpi vguvu ctg hwp!"
  *     knownWord = "tests"

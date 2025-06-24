@@ -5,14 +5,15 @@
  * forward and backward.
  *
  * Examples:
- * s = "A man, a plan, a canal: Panama"
- * Output: true because "amanaplanacanalpanama" is a palindrome
  *
- * s = race a car
- * Output: false because "raceacar" is not a palindrome
+ * INPUT: s = "A man, a plan, a canal: Panama"
+ * OUTPUT: true because "amanaplanacanalpanama" is a palindrome
  *
- * s = " "
- * Output: true because an empty string reads the same backward and forward
+ * INPUT: s = race a car
+ * OUTPUT: false because "raceacar" is not a palindrome
+ *
+ * INPUT: s = " "
+ * OUTPUT: true because an empty string reads the same backward and forward
  */
 class ValidPalindrome {
     /**

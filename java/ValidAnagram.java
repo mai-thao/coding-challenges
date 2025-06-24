@@ -7,14 +7,13 @@ import java.util.Map;
  * Anagram: a word formed by rearranging the letters of a different word or phrase,
  * using all the original letters exactly once.
  *
- * Examples:
- * s = anagram
- * t = nagaram
- * Output: true
+ * Examples-
  *
- * s = rat
- * t = car
- * Output: false
+ * INPUT: s = anagram, t = nagaram
+ * OUTPUT: true
+ *
+ * INPUT: s = rat, t = car
+ * OUTPUT: false
  *
  * Time complexity: O(n) because looping through entire String (no nested loops)
  * Space complexity: O(2n) -> drop constants -> O(n) for worst case when all characters are distinct

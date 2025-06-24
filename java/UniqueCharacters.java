@@ -3,7 +3,8 @@ import java.util.HashSet;
 /**
  * Given a string s, return true if it has all unique characters, or false otherwise.
  *
- * Examples:
+ * Examples-
+ *
  * s = "abcde"
  * Output: true because each character is unique
  *

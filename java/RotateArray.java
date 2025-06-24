@@ -4,7 +4,7 @@ import java.util.Scanner;
  * Takes a size and a 2D array and rotate it counter clockwise,
  * in-place, without creating a new rotated array.
  * 
- * Example- 
+ * Examples-
  * 
  * INPUT:
  * size = 3
