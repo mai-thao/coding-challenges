@@ -57,7 +57,7 @@ class ValidAnagram {
     }
 
     public static void main(String[] args) {
-        System.out.println("Strings: rat & cat, output: " + isAnagram("rat", "car"));
-        System.out.println("Strings: anagram & nagaram, output: " + isAnagram("anagram", "nagaram"));
+        System.out.println("Strings: rat & cat, output: " + isAnagram("rat", "car")); // false
+        System.out.println("Strings: anagram & nagaram, output: " + isAnagram("anagram", "nagaram")); // true
     }
 }
