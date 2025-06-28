@@ -54,11 +54,14 @@ class ContainsDuplicate {
         int[] testCase1 = new int[]{1,2,3,4};
         int[] testCase2 = new int[]{1,2,3,1};
         int[] testCase3 = new int[]{1,1,1,3,3,4,3,2,4,2};
+        int[] testCase4 = new int[]{4};
         boolean result1 = hasDuplicate(testCase1);
         boolean result2 = hasDuplicate(testCase2);
         boolean result3 = hasDuplicate(testCase3);
-        System.out.println("Array: " + Arrays.toString(testCase1) + " Output: " +  result1);
-        System.out.println("Array: " + Arrays.toString(testCase2) + " Output: " + result2);
-        System.out.println("Array: " + Arrays.toString(testCase3) + " Output: " + result3);
+        boolean result4 = hasDuplicate(testCase4);
+        System.out.println("Array: " + Arrays.toString(testCase1) + " Output: " +  result1); // false
+        System.out.println("Array: " + Arrays.toString(testCase2) + " Output: " + result2); // true
+        System.out.println("Array: " + Arrays.toString(testCase3) + " Output: " + result3); // true
+        System.out.println("Array: " + Arrays.toString(testCase4) + " Output: " +  result4); // false
     }
 }
