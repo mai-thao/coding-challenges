@@ -35,7 +35,7 @@ public class FindMiddleNode {
         ListNode node4 = new ListNode(2, node3);
         ListNode node5 = new ListNode(1, node4);
         printNodes(node5);
-        printNodes(middleNode(node5));
+        printNodes(middleNode(node5)); // 3->4->5
 
         System.out.println();
 
@@ -46,19 +46,19 @@ public class FindMiddleNode {
         ListNode node10 = new ListNode(2, node9);
         ListNode node11 = new ListNode(1, node10);
         printNodes(node11);
-        printNodes(middleNode(node11));
+        printNodes(middleNode(node11)); // 4->5->6
 
         System.out.println();
 
         ListNode node12 = new ListNode(1);
         printNodes(node12);
-        printNodes(middleNode(node12));
+        printNodes(middleNode(node12)); // 1
 
         System.out.println();
 
         ListNode node13 = new ListNode(9);
         ListNode node14 = new ListNode(8, node13);
         printNodes(node14);
-        printNodes(middleNode(node14));
+        printNodes(middleNode(node14)); // 9
     }
 }
