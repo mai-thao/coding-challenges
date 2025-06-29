@@ -1,3 +1,10 @@
+/**
+ * Given the head of a singly linked list, return the middle node of the linked list.
+ * If there are two middle nodes, return the second middle node.
+ *
+ * Time complexity: O(n) because traversing the entire node list
+ * Space complexity: O(1) because not creating any extra dataset
+ */
 public class FindMiddleNode {
     public static class ListNode {
         int val;
