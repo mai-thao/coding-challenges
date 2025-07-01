@@ -43,6 +43,14 @@ public class CheckSameTree {
         return true;
     }
 
+    public static boolean isSameTreeRecursive(TreeNode p, TreeNode q) {
+        if (p == null && q == null) {
+            return true;
+        }
+
+        return p != null && q != null && p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    }
+
     public static void main(String[] args) {
         TreeNode t1PNode2 = new TreeNode(2);
         TreeNode t1PNode3 = new TreeNode(3);
@@ -53,6 +61,7 @@ public class CheckSameTree {
         TreeNode t1QNode1 = new TreeNode(1, t1QNode2, t1QNode3); // [1,2,3]
 
         System.out.println("Test 1: " + isSameTree(t1PNode1, t1QNode1)); // true
+        System.out.println("Test 1 (Recursive): " + isSameTreeRecursive(t1PNode1, t1QNode1)); // true
 
         TreeNode t2PNode2 = new TreeNode(2);
         TreeNode t2PNode1 = new TreeNode(1, t2PNode2, null); // [1,2]
@@ -61,6 +70,7 @@ public class CheckSameTree {
         TreeNode t2QNode1 = new TreeNode(1, null, t2QNode2); // [1,null,2]
 
         System.out.println("Test 2: " + isSameTree(t2PNode1, t2QNode1)); // false
+        System.out.println("Test 2 (Recursive): " + isSameTreeRecursive(t2PNode1, t2QNode1)); // false
 
         TreeNode t3PNode2 = new TreeNode(2);
         TreeNode t3PNode3 = new TreeNode(1);
@@ -71,5 +81,6 @@ public class CheckSameTree {
         TreeNode t3QNode1 = new TreeNode(1, t3QNode2, t3QNode3); // [1,1,2]
 
         System.out.println("Test 2: " + isSameTree(t3PNode1, t3QNode1)); // false
+        System.out.println("Test 2 (Recursive): " + isSameTreeRecursive(t3PNode1, t3QNode1)); // false
     }
 }
