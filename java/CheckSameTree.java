@@ -2,8 +2,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Given the roots of two binary trees p and q, write a function to check if they are the same or not.
- * Two trees are the same if they are structurally identical with all the same node values.
+ * Given the roots of two binary trees `p` and `q`, write a function to check if they are the same or not.
+ * Two binarey trees are the same if they are structurally identical with all the same node values.
  */
 public class CheckSameTree {
      public static class TreeNode {
@@ -21,7 +21,7 @@ public class CheckSameTree {
 
     /**
      * Time complexity: O(n) because traversing every node
-     * Space complexity: O(n) because both queues can hold up to all nodes and O(2n) drops constants
+     * Space complexity: O(2n) -> O(n) after dropping constants, and because both queues can hold up to all nodes
      */
     public static boolean isSameTree(TreeNode p, TreeNode q) {
         Queue<TreeNode> queue1 = new LinkedList<>();
