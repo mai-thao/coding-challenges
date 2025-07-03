@@ -18,6 +18,10 @@ public class InvertBinaryTree {
         }
     }
 
+    /**
+     * Time complexity: O(n) because traversing every node
+     * Space complexity: O(n/2) -> O(n) because in perfectly balanced BT all leaf nodes are in the queue
+     */
     public static TreeNode invertTree(TreeNode root) {
         if (root == null) return null;
 
@@ -48,8 +52,28 @@ public class InvertBinaryTree {
         return root;
     }
 
+    /**
+     * Time complexity: O(n) because traversing every node
+     * Space complexity: O(h) because in a skewed tree, the recursive call stack grows with the height
+     */
+    public static TreeNode invertTreeRecursive(TreeNode root) {
+        if (root == null) return root;
+
+        invertTreeRecursive(root.left);
+        invertTreeRecursive(root.right);
+
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+
+        return root;
+    }
+
     public static void printTreeNode(TreeNode root) {
-        if (root == null) System.out.print("Empty");
+        if (root == null) {
+            System.out.print("Empty");
+            return; // Break out of void method
+        }
 
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
@@ -97,5 +121,10 @@ public class InvertBinaryTree {
         printTreeNode(t3root);
         System.out.print(" -> ");
         printTreeNode(invertTree(t3root)); // [1,2] -> [1,null,2] ** The null is not printed
+
+        System.out.println();
+        printTreeNode(null);
+        System.out.print(" -> ");
+        printTreeNode(invertTree(null)); // [] -> []
     }
 }
