@@ -2,7 +2,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class InvertBinaryTree {
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -15,7 +15,7 @@ public class InvertBinaryTree {
         }
     }
 
-    public TreeNode invertTree(TreeNode root) {
+    public static TreeNode invertTree(TreeNode root) {
         if (root == null) return null;
 
         Queue<TreeNode> queue = new LinkedList<>();
@@ -41,5 +41,36 @@ public class InvertBinaryTree {
             }
         }
         return root;
+    }
+
+    public static void printTreeNode(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+            for (int i = 0; i < levelSize; i++) {
+                TreeNode popped = queue.poll();
+                System.out.print(popped.val + ",");
+                if (popped.left != null) {
+                    queue.add(popped.left);
+                }
+                if (popped.right != null) {
+                    queue.add(popped.right);
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        TreeNode t1Node1 = new TreeNode(1);
+        TreeNode t1Node3 = new TreeNode(3);
+        TreeNode t1Node2 = new TreeNode(2, t1Node1, t1Node3);
+        TreeNode t1Node6 = new TreeNode(6);
+        TreeNode t1Node9 = new TreeNode(9);
+        TreeNode t1Node7 = new TreeNode(7, t1Node6, t1Node9);
+        TreeNode t1root = new TreeNode(4, t1Node2, t1Node7);
+        printTreeNode(t1root);
+        System.out.print(" -> ");
+        printTreeNode(invertTree(t1root)); // [4,2,7,1,3,6,9] -> [4,7,2,9,6,3,1]
     }
 }
