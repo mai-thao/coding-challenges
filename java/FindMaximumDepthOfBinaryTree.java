@@ -19,6 +19,12 @@ public class FindMaximumDepthOfBinaryTree {
          }
     }
 
+    /**
+     * This solution uses an iterative Breadth-First Search approach: traverses level-by-level and count the depth!
+     *
+     * Time complexity: O(n) where n is the number of nodes where all nodes are traversed once
+     * Space complexity: O(n/2) -> O(n) after dropping constants, for when it's a perfectly balanced binary tree where all leaf nodes are stored in the queue
+     */
     public static int maxDepth(TreeNode root) {
         int depth = 0;
         if (root == null) return depth;
@@ -42,6 +48,13 @@ public class FindMaximumDepthOfBinaryTree {
         return depth;
     }
 
+    /**
+     * This solution uses recursive Depth-First Search approach: add 1 to account for current node and
+     * calculating the maximum DEPTH between the left and right sides!
+     *
+     * Time complexity: O(n) where n is the number of nodes where all nodes are traversed once
+     * Space complexity: O(h) for the recursive stack from the height of the tree (skewed tree)
+     */
     public static int maxDepthRecursive(TreeNode root) {
         if (root == null) return 0;
         return 1 + Math.max(maxDepthRecursive(root.left),  maxDepthRecursive(root.right));
