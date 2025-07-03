@@ -31,10 +31,10 @@ public class InvertBinaryTree {
                     popped.right = temp;
                     queue.add(popped.left);
                     queue.add(popped.right);
-                } else if (popped.left != null && popped.right == null) {
+                } else if (popped.left != null) {
                     popped.right = popped.left;
                     queue.add(popped.right);
-                } else if (popped.left == null && popped.right != null) {
+                } else if (popped.right != null) {
                     popped.left = popped.right;
                     queue.add(popped.left);
                 }
