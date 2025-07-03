@@ -30,7 +30,8 @@ public class FindMaximumDepthOfBinaryTree {
                 TreeNode popped = queue.poll();
                 if (popped.left != null) {
                     queue.add(popped.left);
-                } else if (popped.right != null) {
+                }
+                if (popped.right != null) {
                     queue.add(popped.right);
                 }
             }
@@ -55,6 +56,5 @@ public class FindMaximumDepthOfBinaryTree {
 
         TreeNode t4Node5 = new TreeNode(5);
         System.out.println(maxDepth(t4Node5)); // [5] -> 1
-
     }
 }
