@@ -19,6 +19,10 @@ public class SubtreeOfAnotherTree {
         }
     }
 
+    /**
+     * Time complexity: O(n*m) because traversing all nodes in both `root` and `subRoot` trees
+     * Space complexity: O(max(w,h)) because largest value of width (queue stores all leaf nodes in perfectly balanced BT) or height (call stack in skewed tree)
+     */
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
         Queue<TreeNode> rQueue = new LinkedList<>();
         rQueue.add(root);
@@ -26,7 +30,7 @@ public class SubtreeOfAnotherTree {
         while(!rQueue.isEmpty()) {
             TreeNode popped = rQueue.poll();
             if (popped.val == subRoot.val) {
-                if (checkNodes(popped, subRoot)) {
+                if (isSame(popped, subRoot)) {
                     return true;
                 }
             }
@@ -40,31 +44,23 @@ public class SubtreeOfAnotherTree {
         return false;
     }
 
-    private boolean checkNodes(TreeNode root, TreeNode subRoot) {
-        Queue<TreeNode> queue1 = new LinkedList<>();
-        Queue<TreeNode> queue2 = new LinkedList<>();
+    /**
+     * Time complexity: O(n*m) because traversing all nodes in both `root` and `subRoot` trees
+     * Space complexity: O(h) because of the height of call stack in skewed tree (aka O(n) too)
+     */
+    public boolean isSubtreeRecursive(TreeNode root, TreeNode subRoot) {
+        if (root == null) return false;
+        if (isSame(root, subRoot)) return true;
 
-        queue1.add(root);
-        queue2.add(subRoot);
+        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+    }
 
-        while (!queue1.isEmpty() && !queue2.isEmpty()) {
-            TreeNode popped1 = queue1.poll();
-            TreeNode popped2 = queue2.poll();
-            if (popped1 == null && popped2 != null) {
-                return false;
-            } else if (popped1 != null && popped2 == null) {
-                return false;
-            }
-            if (popped1 != null && popped2 != null) {
-                if (popped1.val != popped2.val) {
-                    return false;
-                }
-                queue1.add(popped1.left);
-                queue1.add(popped1.right);
-                queue2.add(popped2.left);
-                queue2.add(popped2.right);
-            }
-        }
-        return true;
+    // Helper function to check equality of two trees: same structure and same values
+    private boolean isSame(TreeNode root, TreeNode subRoot) {
+        if (root == null && subRoot == null) return true;
+        if (subRoot == null || root == null) return false;
+        if (root.val != subRoot.val) return false;
+
+        return isSame(root.left, subRoot.left) && isSame(root.right, subRoot.right);
     }
 }
