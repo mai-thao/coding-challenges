@@ -1,7 +1,5 @@
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 /**
  * Given the roots of two binary trees `root` and `subRoot`, return true if there is a subtree of `root` with `subRoot` and false otherwise.
@@ -42,43 +40,29 @@ public class SubtreeOfAnotherTree {
         return false;
     }
 
-
     private boolean checkNodes(TreeNode root, TreeNode subRoot) {
-        Stack<TreeNode> rStack = new Stack<>();
-        Stack<TreeNode> sStack = new Stack<>();
+        Queue<TreeNode> queue1 = new LinkedList<>();
+        Queue<TreeNode> queue2 = new LinkedList<>();
 
-        rStack.push(root);
-        sStack.push(subRoot);
+        queue1.add(root);
+        queue2.add(subRoot);
 
-        while(!rStack.isEmpty() && !sStack.isEmpty()) {
-            TreeNode rPopped = rStack.pop();
-            TreeNode sPopped = sStack.pop();
-            if (rPopped.val != sPopped.val) {
+        while (!queue1.isEmpty() && !queue2.isEmpty()) {
+            TreeNode popped1 = queue1.poll();
+            TreeNode popped2 = queue2.poll();
+            if (popped1 == null && popped2 != null) {
+                return false;
+            } else if (popped1 != null && popped2 == null) {
                 return false;
             }
-            if (rPopped.left != null) {
-                if (sPopped.left == null) {
+            if (popped1 != null && popped2 != null) {
+                if (popped1.val != popped2.val) {
                     return false;
                 }
-                rStack.add(rPopped.left);
-            }
-            if (rPopped.right !=  null) {
-                if (sPopped.right == null) {
-                    return false;
-                }
-                rStack.add(rPopped.right);
-            }
-            if (sPopped.left != null) {
-                if (rPopped.left == null) {
-                    return false;
-                }
-                sStack.add(sPopped.left);
-            }
-            if (sPopped.right !=  null) {
-                if (rPopped.right == null) {
-                    return false;
-                }
-                sStack.add(sPopped.right);
+                queue1.add(popped1.left);
+                queue1.add(popped1.right);
+                queue2.add(popped2.left);
+                queue2.add(popped2.right);
             }
         }
         return true;
