@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * Given the roots of two binary trees `root` and `subRoot`, return true if there is a subtree of `root` with `subRoot` and false otherwise.
@@ -21,17 +22,15 @@ public class SubtreeOfAnotherTree {
     }
 
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
-         ArrayList<Integer> srList = buildList(subRoot);
-
         Queue<TreeNode> rQueue = new LinkedList<>();
         rQueue.add(root);
+
         while(!rQueue.isEmpty()) {
             TreeNode popped = rQueue.poll();
             if (popped.val == subRoot.val) {
-                 ArrayList<Integer> poppedList = buildList(popped);
-                 if (poppedList.equals(srList)) {
-                     return true;
-                 }
+                if (checkNodes(popped, subRoot)) {
+                    return true;
+                }
             }
             if (popped.left != null) {
                 rQueue.add(popped.left);
@@ -44,20 +43,44 @@ public class SubtreeOfAnotherTree {
     }
 
 
-    private ArrayList<Integer> buildList(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        ArrayList<Integer> list = new ArrayList<>();
-        while(!queue.isEmpty()) {
-            TreeNode popped = queue.poll();
-            list.add(popped.val);
-            if (popped.left != null) {
-                queue.add(popped.left);
+    private boolean checkNodes(TreeNode root, TreeNode subRoot) {
+        Stack<TreeNode> rStack = new Stack<>();
+        Stack<TreeNode> sStack = new Stack<>();
+
+        rStack.push(root);
+        sStack.push(subRoot);
+
+        while(!rStack.isEmpty() && !sStack.isEmpty()) {
+            TreeNode rPopped = rStack.pop();
+            TreeNode sPopped = sStack.pop();
+            if (rPopped.val != sPopped.val) {
+                return false;
             }
-            if (popped.right != null) {
-                queue.add(popped.right);
+            if (rPopped.left != null) {
+                if (sPopped.left == null) {
+                    return false;
+                }
+                rStack.add(rPopped.left);
+            }
+            if (rPopped.right !=  null) {
+                if (sPopped.right == null) {
+                    return false;
+                }
+                rStack.add(rPopped.right);
+            }
+            if (sPopped.left != null) {
+                if (rPopped.left == null) {
+                    return false;
+                }
+                sStack.add(sPopped.left);
+            }
+            if (sPopped.right !=  null) {
+                if (rPopped.right == null) {
+                    return false;
+                }
+                sStack.add(sPopped.right);
             }
         }
-        return list;
+        return true;
     }
 }
