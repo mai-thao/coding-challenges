@@ -1,3 +1,7 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 /**
  * Given the root of a binary tree, check whether it is a mirror of itself (i.e. symmetric around its center).
  */
@@ -13,6 +17,36 @@ public class DetermineSymmetricTree {
             this.left = left;
             this.right = right;
         }
+    }
+
+    public boolean isSymmetric(TreeNode root) {
+        if (root.left == null && root.right == null) return true;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int currLevelNodes = queue.size();
+            if (currLevelNodes == 1) {
+                TreeNode currNode = queue.poll();
+                if (currNode.left != null) queue.add(currNode.left);
+                if (currNode.right != null) queue.add(currNode.right);
+            } else {
+                Stack<TreeNode> stack = new Stack<>();
+                for (int i = 0 ; i < currLevelNodes/2; i++) {
+                    TreeNode currNode = queue.poll();
+                    if (currNode.left != null) queue.add(currNode.left);
+                    if (currNode.right != null) queue.add(currNode.right);
+                    stack.push(currNode);
+                }
+                for (int i = 0; i < currLevelNodes/2; i++) {
+                    TreeNode leftCurrNode = queue.poll();
+                    if (leftCurrNode.left != null) queue.add(leftCurrNode.left);
+                    if (leftCurrNode.right != null) queue.add(leftCurrNode.right);
+                    TreeNode rightCurrNode = stack.pop();
+                    if (leftCurrNode.val != rightCurrNode.val) return false;
+                }
+            }
+        }
+        return true;
     }
 
     public static boolean isSymmetricRecursive(TreeNode root) {
