@@ -1,6 +1,5 @@
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 /**
  * Given the root of a binary tree, check whether it is a mirror of itself (i.e. symmetric around its center).
@@ -20,31 +19,26 @@ public class DetermineSymmetricTree {
     }
 
     public boolean isSymmetric(TreeNode root) {
+        if (root == null) return true;
         if (root.left == null && root.right == null) return true;
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            int currLevelNodes = queue.size();
-            if (currLevelNodes == 1) {
-                TreeNode currNode = queue.poll();
-                if (currNode.left != null) queue.add(currNode.left);
-                if (currNode.right != null) queue.add(currNode.right);
-            } else {
-                Stack<TreeNode> stack = new Stack<>();
-                for (int i = 0 ; i < currLevelNodes/2; i++) {
-                    TreeNode currNode = queue.poll();
-                    if (currNode.left != null) queue.add(currNode.left);
-                    if (currNode.right != null) queue.add(currNode.right);
-                    stack.push(currNode);
-                }
-                for (int i = 0; i < currLevelNodes/2; i++) {
-                    TreeNode leftCurrNode = queue.poll();
-                    if (leftCurrNode.left != null) queue.add(leftCurrNode.left);
-                    if (leftCurrNode.right != null) queue.add(leftCurrNode.right);
-                    TreeNode rightCurrNode = stack.pop();
-                    if (leftCurrNode.val != rightCurrNode.val) return false;
-                }
-            }
+
+        Queue<TreeNode> leftQueue = new LinkedList<>();
+        Queue<TreeNode> rightQueue = new LinkedList<>();
+
+        leftQueue.add(root.left);
+        rightQueue.add(root.right);
+
+        while (!leftQueue.isEmpty() && !rightQueue.isEmpty()) {
+            TreeNode leftCurrNode = leftQueue.poll();
+            TreeNode rightCurrNode = rightQueue.poll();
+
+            if (leftCurrNode == null || rightCurrNode == null) return false;
+            if (leftCurrNode.val != rightCurrNode.val) return false;
+
+            leftQueue.add(leftCurrNode.left);
+            leftQueue.add(leftCurrNode.right);
+            rightQueue.add(rightCurrNode.right);
+            rightQueue.add(rightCurrNode.left);
         }
         return true;
     }
