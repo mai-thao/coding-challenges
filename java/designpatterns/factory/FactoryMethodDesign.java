@@ -1,4 +1,4 @@
-package designpatterns;
+package designpatterns.factory;
 
 /**
  * An interface defines a set of method contracts with no shared states (no memory allocated). It is ideal
