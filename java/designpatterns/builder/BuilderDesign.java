@@ -1,5 +1,8 @@
 package designpatterns.builder;
 
+/**
+ * Enum food options for each meal course
+ */
 enum Starter {
     SALAD,
     SOUP,
@@ -37,11 +40,42 @@ class Meal {
     private Dessert dessert;
     private Drink drink;
 
-    // TODO: Write getter methods for each course
+    public Starter getStarter() {
+        return this.starter;
+    }
 
-    // TODO: Write setter methods for each course
+    public Main getMain() {
+        return this.main;
+    }
+
+    public Dessert getDessert() {
+        return this.dessert;
+    }
+
+    public Drink getDrink() {
+        return this.drink;
+    }
+
+    public void setStarter(Starter starter) {
+        this.starter = starter;
+    }
+
+    public void setMain(Main main) {
+        this.main = main;
+    }
+
+    public void setDessert(Dessert dessert) {
+        this.dessert = dessert;
+    }
+
+    public void setDrink(Drink drink) {
+        this.drink = drink;
+    }
 }
 
+/**
+ * This Builder interface can be reused to build different types of meals, making it extendable
+ */
 interface Builder {
     void addStarter();
     void addMainCourse();
@@ -53,32 +87,31 @@ class VeganMealBuilder implements Builder {
     private Meal meal;
 
     public VeganMealBuilder() {
-        //TODO: Write your code here
+        this.meal = new Meal();
     }
 
     @Override
     public void addStarter() {
-        //TODO: Write your code here
+        meal.setStarter(Starter.VEGGIE_STICKS);
     }
 
     @Override
     public void addMainCourse() {
-        //TODO: Write your code here
+        meal.setMain(Main.VEGGIE_STIR_FRY);
     }
 
     @Override
     public void addDessert() {
-        //TODO: Write your code here
+        meal.setDessert(Dessert.VEGAN_PUDDING);
     }
 
     @Override
     public void addDrink() {
-        //TODO: Write your code here
+        meal.setDrink(Drink.VEGAN_SHAKE);
     }
 
     Meal build() {
-        // Return the completed meal
-        return null; // placeholder
+        return meal;
     }
 }
 
@@ -86,36 +119,35 @@ class HealthyMealBuilder implements Builder {
     private Meal meal;
 
     public HealthyMealBuilder() {
-        //TODO: Write your code here
+        this.meal = new Meal();
     }
 
     @Override
     public void addStarter() {
-        //TODO: Write your code here
+        meal.setStarter(Starter.SOUP);
     }
 
     @Override
     public void addMainCourse() {
-        //TODO: Write your code here
+        meal.setMain(Main.GRILLED_CHICKEN);
     }
 
     @Override
     public void addDessert() {
-        //TODO: Write your code here
+        meal.setDessert(Dessert.FRUIT_SALAD);
     }
 
     @Override
     public void addDrink() {
-        //TODO: Write your code here
+        meal.setDrink(Drink.FRUIT_JUICE);
     }
 
     Meal build() {
-        return null; // placeholder
+        return meal;
     }
 }
 
 class Director {
-
     void constructVeganMeal(Builder builder) {
         builder.addStarter();
         builder.addMainCourse();
@@ -135,6 +167,9 @@ class Director {
  * The Builder pattern is a creational pattern that separates the construction of a complex object
  * from its representation. This way, the same construction process can be used to create different
  * representations of the product.
+ *
+ * This pattern hides the implementation of each meal away from the `main()` client. It keeps the
+ * repetitive, manual object configuration (e.g. setters) away from the main code.
  */
 public class BuilderDesign {
     public static void main(String[] args) {
@@ -150,6 +185,8 @@ public class BuilderDesign {
         System.out.println("Main: " + veganMeal.getMain());
         System.out.println("Dessert: " + veganMeal.getDessert());
         System.out.println("Drink: " + veganMeal.getDrink());
+
+        System.out.println();
 
         HealthyMealBuilder builder2 = new HealthyMealBuilder();
         director.constructHealthyMeal(builder2);
