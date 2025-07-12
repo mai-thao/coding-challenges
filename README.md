@@ -1,5 +1,5 @@
 ﻿# coding-challenges
-My solutions to various coding challenges and puzzles. Think of Leetcode-style prompts solved in Java or Python. Exercises different data structure and algorithms.
+My solutions to various coding challenges and puzzles. Think of [Leetcode](https://leetcode.com/), [Neetcode](https://neetcode.io/), and [Cracking The Coding Interview](https://www.crackingthecodinginterview.com/)-style prompts solved in Java or Python. Exercises different data structure and algorithms.
 
 ### Data Structure
 ```mermaid
