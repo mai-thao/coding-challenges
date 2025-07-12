@@ -5,12 +5,11 @@ import java.util.List;
 /**
  * Given an array `nums` of n integers where `nums[i]` is in the range [1, n], return an array
  * of all the integers in the range [1, n] that do not appear in `nums`.
+ *
+ * Time complexity: O(n) because traversing the entire nums array
+ * Space complexity: O(n) because needed HashSet where in worst case all nums are unique so they're stored into it
  */
 public class FindMissingNumbers {
-    /**
-     * Time complexity: O(n) because traversing the entire nums array
-     * Space complexity: O(n) because needed HashSet where in worst case all nums are unique so they're stored into it
-     */
     public static List<Integer> findDisappearedNumbers(int[] nums) {
         HashSet<Integer> uniqueNums = new HashSet<>();
         for (int num: nums) {
