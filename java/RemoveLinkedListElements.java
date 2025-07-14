@@ -14,6 +14,7 @@ public class RemoveLinkedListElements {
          ListNode(int val, ListNode next) { this.val = val; this.next = next; }
      }
 
+    // Solution checks the current node, needs to keep track of previous node
     public static ListNode removeElements(ListNode head, int val) {
         if (head == null) return head;
 
@@ -33,6 +34,21 @@ public class RemoveLinkedListElements {
         return newHead.next;
     }
 
+    // Solution checks the next node, does not need to keep track of previous node
+    public static ListNode removeElementsSecondSolution(ListNode head, int val) {
+        ListNode tempHead = new ListNode(-1, head);
+        ListNode curr = tempHead;
+
+        while (curr.next != null) {
+            if (curr.next.val == val) {
+                curr.next = curr.next.next;
+            } else {
+                curr = curr.next;
+            }
+        }
+        return tempHead.next;
+    }
+
     // Helper fxn to print the values of each node in order
     public static void printNodes(ListNode head) {
         if (head == null) System.out.print("Empty");
@@ -46,16 +62,28 @@ public class RemoveLinkedListElements {
 
     public static void main(String[] args) {
         printNodes(removeElements(null, 1)); // [], val 1 -> []
+        printNodes(removeElementsSecondSolution(null, 1));
+
+        System.out.println();
 
         printNodes(removeElements(new ListNode(1), 1)); // [1], val 1 -> []
+        printNodes(removeElementsSecondSolution(new ListNode(1), 1));
+
+        System.out.println();
 
         printNodes(removeElements(new ListNode(2), 1)); // [2], val 1 -> [2]
+        printNodes(removeElementsSecondSolution(new ListNode(2), 1));
+
+        System.out.println();
 
         ListNode fourthNode7 = new ListNode(7);
         ListNode thirdNode7 = new ListNode(7, fourthNode7);
         ListNode secondNode7 = new ListNode(7, thirdNode7);
         ListNode firstNode7 = new ListNode(7, secondNode7);
         printNodes(removeElements(firstNode7, 7)); // [7,7,7,7], val = 7 -> []
+        printNodes(removeElementsSecondSolution(firstNode7, 7));
+
+        System.out.println();
 
         ListNode secondNode6 = new ListNode(6);
         ListNode node5 = new ListNode(5, secondNode6);
@@ -65,5 +93,6 @@ public class RemoveLinkedListElements {
         ListNode node2 = new ListNode(2, firstNode6);
         ListNode node1 = new ListNode(1, node2);
         printNodes(removeElements(node1, 6)); // [1,2,6,3,4,5,6], val = 7 -> [1,2,3,4,5]
+        printNodes(removeElementsSecondSolution(node1, 6));
     }
 }
