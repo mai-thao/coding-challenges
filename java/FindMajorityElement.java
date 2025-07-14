@@ -14,8 +14,6 @@ public class FindMajorityElement {
 
         for (int num: nums) {
             numToOccurr.put(num, numToOccurr.getOrDefault(num, 0) + 1);
-        }
-        for (int num: nums) {
             if (numToOccurr.get(num) > majorPercentage) {
                 return num;
             }
