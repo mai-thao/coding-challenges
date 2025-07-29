@@ -27,4 +27,4 @@ flowchart TD
   B3 --> E2(Adapter)
   B3 --> E3(Decorator)
 ```
-_Note: This awesome flowchart was created using Mermaid. Check it out, it's a charting and diagramming tool with text & code!_
+_FYI: This awesome flowchart was created using Mermaid. Check it out, it's a charting and diagramming tool with text & code!_
