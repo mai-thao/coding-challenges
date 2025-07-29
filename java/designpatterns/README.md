@@ -1,4 +1,4 @@
-# design-patterns
+# designpatterns
 
 Design patterns are a way to solve commonly occurring problems in software engineering. They are reusable, tested solutions to certain
 software design problems. 
