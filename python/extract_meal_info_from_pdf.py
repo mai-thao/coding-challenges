@@ -33,8 +33,8 @@ for vegetable in vegetables:
 
 difference = abs(fruit_count - vegetable_count)
 
-print("Fruit Count:", fruit_count)
-print("Vegetable Count:", vegetable_count)
-print("Fruits:", fruit_counts)
-print("Vegetables:", vegetable_counts)
-print("Count Difference:", difference)
+print("Fruit Count:", fruit_count)          # 9
+print("Vegetable Count:", vegetable_count)  # 14
+print("Fruits:", fruit_counts)              # {'cherry': 2, 'berries': 4, 'apple': 2, 'blueberry': 1}
+print("Vegetables:", vegetable_counts)      # {'kale': 1, 'carrots': 2, 'tomatoes': 2, 'artichoke': 2, 'green beans': 2, 'avocado': 4, 'squash': 1}
+print("Count Difference:", difference)      # 5
