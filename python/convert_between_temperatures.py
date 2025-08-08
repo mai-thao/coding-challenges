@@ -17,15 +17,29 @@ converter = TemperatureConverter()
 
 # Celsius -> Fahrenheit
 print(converter.convert(-273.15, 'C'))  # -459.67
+assert converter.convert(-273.15, 'C') == -459.67
+
 print(converter.convert(100, 'C'))      # 212.0
+assert converter.convert(100, 'C') == 212.0
+
 print(converter.convert(0, 'C'))        # 32.0
+assert converter.convert(-0, 'C') == 32.0
+
 print(converter.convert(1000, 'C'))     # 1832.0
+assert converter.convert(1000, 'C') == 1832.0
 
 # Fahrenheit -> Celsius
 print(converter.convert(32, 'F'))       # 0.0
+assert converter.convert(32, 'F') == 0.0
+
 print(converter.convert(212, 'F'))      # 100.0
+assert converter.convert(212, 'F') == 100.0
+
 print(converter.convert(-459.67, 'F'))  # -273.15
+assert converter.convert(-459.67, 'F') == -273.15
+
 print(converter.convert(-40, 'C'))      # -40.0
+assert converter.convert(-40, 'F') == -40
 
 # Invalid test case
 try:
