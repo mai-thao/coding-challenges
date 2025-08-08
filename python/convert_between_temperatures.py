@@ -1,5 +1,7 @@
 class TemperatureConverter:
     def convert(self, temperature, unit):
+        if not isinstance(temperature, (int, float)):
+            raise ValueError("Temperature must be a number")
         if unit == 'C':
             return self.celsius_to_fahrenheit(temperature)
         elif unit == 'F':
@@ -41,9 +43,15 @@ assert converter.convert(-459.67, 'F') == -273.15
 print(converter.convert(-40, 'C'))      # -40.0
 assert converter.convert(-40, 'F') == -40
 
-# Invalid test case
+# Invalid test cases
 try:
     converter.convert(0, 'K')
 except ValueError as e:
     print(e)                            # "Invalid unit"
     assert str(e) == "Invalid unit"
+
+try:
+    converter.convert('K', 'C')
+except ValueError as e:
+    print(e)                            # "Invalid temperature"
+    assert str(e) == "Temperature must be a number"
