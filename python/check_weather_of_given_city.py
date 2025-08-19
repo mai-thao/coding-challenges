@@ -18,8 +18,8 @@ def get_curr_temp_and_rain_forecast(city):
     try:
         response = requests.get(url)
         response.raise_for_status()
-    except requests.exceptions.RequestException:
-        return None, None, None
+    except requests.exceptions.RequestException as e:
+        return None, None, None, e
    
     data = json.loads(response.text)
     
@@ -32,17 +32,26 @@ def get_curr_temp_and_rain_forecast(city):
  
     # daily_will_it_rain returns `1` = Yes or `0`` = No
     if will_it_rain == 1:
-        return curr_temp_c, curr_temp_f, chance_of_rain
+        return curr_temp_c, curr_temp_f, chance_of_rain, None
     else:
-        return curr_temp_c, curr_temp_f, None
+        return curr_temp_c, curr_temp_f, None, None
 
-temp_c, temp_f, chance_of_rain = get_curr_temp_and_rain_forecast(city_name) 
+temp_c, temp_f, chance_of_rain, error = get_curr_temp_and_rain_forecast(city_name) 
 
-if temp_c and temp_f:
-    print(f"The current temperature in {city_name} is {temp_c} degrees Celsius or {temp_f} degrees Fahrenheit.") 
+if error:
+    error_data = json.loads(error.response.text)
+    code = error_data["error"]["code"]
+    if (code == 1002): 
+        print(f"Error occured: API key is missing!")
+    elif (code == 1006): 
+        print(f"Error occured: Invalid city!")
+    elif (code == 2006): 
+        print(f"Error occured: API key is invalid, check your account!")
+    else:
+        print(f"Unexpected error occured!") 
+else:
+    print(f"The current temperature in {city_name} is: {temp_c} degrees Celsius or {temp_f} degrees Fahrenheit.") 
     if chance_of_rain:
         print(f"It will rain today with a {chance_of_rain}% chance of rain.")
     else:
         print("It will not rain today.")
-else:
-    print(f"Error occured: city not found or there was an unexpected API error!") 
