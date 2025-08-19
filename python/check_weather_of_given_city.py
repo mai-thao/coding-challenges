@@ -7,13 +7,11 @@ You will need to sign up with a free account to receive a unique API key.
 See set up details and API contract at: https://www.weatherapi.com/docs/
 '''
 
-api_key = "PASTE_API_KEY_HERE"
-base_url = "http://api.weatherapi.com/v1/"
-
-city_name = input("Enter the city name: ")
+API_KEY = "PASTE_API_KEY_HERE"
+BASE_URL = "http://api.weatherapi.com/v1/"
 
 def get_curr_temp_and_rain_forecast(city):
-    url = f"{base_url}forecast.json?key={api_key}&q={city}"
+    url = f"{BASE_URL}forecast.json?key={API_KEY}&q={city}"
     
     try:
         response = requests.get(url)
@@ -36,22 +34,28 @@ def get_curr_temp_and_rain_forecast(city):
     else:
         return curr_temp_c, curr_temp_f, None, None
 
-temp_c, temp_f, chance_of_rain, error = get_curr_temp_and_rain_forecast(city_name) 
+def main():
+    city_name = input("Enter the city name: ")
 
-if error:
-    error_data = json.loads(error.response.text)
-    code = error_data["error"]["code"]
-    if (code == 1002): 
-        print(f"Error occured: API key is missing!")
-    elif (code == 1006): 
-        print(f"Error occured: Invalid city!")
-    elif (code == 2006): 
-        print(f"Error occured: API key is invalid, check your account!")
+    temp_c, temp_f, chance_of_rain, error = get_curr_temp_and_rain_forecast(city_name) 
+
+    if error:
+        error_data = json.loads(error.response.text)
+        code = error_data["error"]["code"]
+        if (code == 1002): 
+            print(f"Error occured: API key is missing!")
+        elif (code == 1006): 
+            print(f"Error occured: Invalid city!")
+        elif (code == 2006): 
+            print(f"Error occured: API key is invalid, check your account!")
+        else:
+            print(f"Unexpected error occured!") 
     else:
-        print(f"Unexpected error occured!") 
-else:
-    print(f"The current temperature in {city_name} is: {temp_c} degrees Celsius or {temp_f} degrees Fahrenheit.") 
-    if chance_of_rain:
-        print(f"It will rain today with a {chance_of_rain}% chance of rain.")
-    else:
-        print("It will not rain today.")
+        print(f"The current temperature in {city_name} is: {temp_c} degrees Celsius or {temp_f} degrees Fahrenheit.") 
+        if chance_of_rain:
+            print(f"It will rain today with a {chance_of_rain}% chance of rain.")
+        else:
+            print("It will not rain today.")
+
+if __name__ == "__main__":
+    main()
