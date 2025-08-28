@@ -1,3 +1,4 @@
+import java.util.Set;
 import java.util.Stack;
 
 /**
@@ -31,7 +32,15 @@ public class ReverseVowelsOfString {
     }
 
     private static boolean isVowel(char c) {
-        return c == 'a' || c == 'A' || c == 'e' || c == 'E' || c == 'i' || c == 'I' || c == 'o' || c == 'O' || c == 'u' || c == 'U';
+        // Straightforward and fastest way to check vowel equality
+        // return c == 'a' || c == 'A' || c == 'e' || c == 'E' || c == 'i' || c == 'I' || c == 'o' || c == 'O' || c == 'u' || c == 'U';
+
+        // Another approach using set, most suited for when set is huge and dynamically changing
+        // Set<Character> vowels = Set.of('a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U');
+        // return vowels.contains(c);
+
+        // Another approach using String.indexOf, more concise and easier to read (indexOf returns -1 if not found, index position otherwise)
+        return "aeiouAEIOU".indexOf(c) >= 0;
     }
 
     public static void main(String[] args) {
