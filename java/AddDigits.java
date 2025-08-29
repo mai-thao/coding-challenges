@@ -1,27 +1,26 @@
 /**
  * Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
  *
- * Time complexity: O(n) because iterating through each digit in the num
- * Space complexity: O(n) because creating a new string to get the length of the integer
+ * Time complexity: O(n*m) because iterating through each digit in num AND iterating again to reduce down to 1 digit
+ * Space complexity: O(1) because no extra dataset or memory created
  */
 public class AddDigits {
     public static int addDigits(int num) {
         int sum = 0;
-        while (String.valueOf(num).length() > 1) {
+        while (num > 0) {
             int popped = num % 10;
             sum += popped;
             num = num / 10;
-            if (String.valueOf(num).length() == 1) {
-                sum += num;
+            if (num == 0 && sum >= 10) {
                 num = sum;
                 sum = 0;
             }
         }
-        return num;
+        return sum;
     }
 
     public static void main(String[] args) {
-        System.out.println(addDigits(38)); // 2
+        System.out.println(addDigits(38)); // 3+8=11 -> 1+1=2 -> 2
         System.out.println(addDigits(0)); // 0
     }
 }
