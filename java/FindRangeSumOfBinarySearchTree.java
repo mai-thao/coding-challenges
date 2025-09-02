@@ -38,10 +38,10 @@ public class FindRangeSumOfBinarySearchTree {
             if (currNode.val >= low && currNode.val <= high) {
                 sum += currNode.val;
             }
-            if (currNode.left != null) {
+            if (currNode.left != null && currNode.val > low) {
                 nodes.offer(currNode.left);
             }
-            if (currNode.right != null) {
+            if (currNode.right != null && currNode.val < high) {
                 nodes.offer(currNode.right);
             }
         }
@@ -60,10 +60,10 @@ public class FindRangeSumOfBinarySearchTree {
         if (root.val >= low && root.val <= high) {
             sum += root.val;
         }
-        if (root.left != null) {
+        if (root.val > low) {
             sum += rangeSumBSTWithDFS(root.left, low, high);
         }
-        if (root.right != null) {
+        if (root.val < high) {
             sum += rangeSumBSTWithDFS(root.right, low, high);
         }
         return sum;
