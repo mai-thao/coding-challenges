@@ -22,7 +22,13 @@ public class FindRangeSumOfBinarySearchTree {
         }
     }
 
-    public static int rangeSumBST(TreeNode root, int low, int high) {
+    /**
+     * Iterative approach using BFS with Queue!
+     *
+     * Time complexity: O(n) because visiting each node
+     * Space complexity: O(h) because of queue potentially holding all nodes in skewed tree
+     */
+    public static int rangeSumBSTWithBFS(TreeNode root, int low, int high) {
         if (root == null) return 0;
         int sum = 0;
         Queue<TreeNode> nodes = new LinkedList<>();
@@ -42,6 +48,27 @@ public class FindRangeSumOfBinarySearchTree {
         return sum;
     }
 
+    /**
+     * DFS with recursion!
+     *
+     * Time complexity: O(n) because visiting each node
+     * Space complexity: O(h) because of call stack potentially holding all nodes in skewed tree
+     */
+    public static int rangeSumBSTWithDFS(TreeNode root, int low, int high) {
+        if (root == null) return 0;
+        int sum = 0;
+        if (root.val >= low && root.val <= high) {
+            sum += root.val;
+        }
+        if (root.left != null) {
+            sum += rangeSumBSTWithDFS(root.left, low, high);
+        }
+        if (root.right != null) {
+            sum += rangeSumBSTWithDFS(root.right, low, high);
+        }
+        return sum;
+    }
+
     public static void main(String[] args) {
         TreeNode p1Node3 = new TreeNode(3);
         TreeNode P1Node7 = new TreeNode(7);
@@ -49,7 +76,8 @@ public class FindRangeSumOfBinarySearchTree {
         TreeNode p1Node18 = new TreeNode(18);
         TreeNode p1Node15 = new TreeNode(15, null, p1Node18);
         TreeNode p1rootNode10 = new TreeNode(10, p1Node5, p1Node15);
-        System.out.println(rangeSumBST(p1rootNode10, 7, 15)); // 32
+        System.out.println(rangeSumBSTWithBFS(p1rootNode10, 7, 15)); // 32
+        System.out.println(rangeSumBSTWithDFS(p1rootNode10, 7, 15)); // 32
 
         TreeNode p2Node1 = new TreeNode(1);
         TreeNode p2Node3 = new TreeNode(3, p2Node1, null);
@@ -60,6 +88,7 @@ public class FindRangeSumOfBinarySearchTree {
         TreeNode p2Node18 = new TreeNode(18);
         TreeNode p2Node15 = new TreeNode(15, p2Node13, p2Node18);
         TreeNode p2rootNode10 = new TreeNode(10, p2Node5, p2Node15);
-        System.out.println(rangeSumBST(p2rootNode10, 6, 10)); // 23
+        System.out.println(rangeSumBSTWithBFS(p2rootNode10, 6, 10)); // 23
+        System.out.println(rangeSumBSTWithDFS(p2rootNode10, 6, 10)); // 23
     }
 }
