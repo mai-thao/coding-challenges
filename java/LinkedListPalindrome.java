@@ -23,21 +23,16 @@ public class LinkedListPalindrome {
     }
 
     public static boolean isPalindrome(ListNode head) {
-        int counter = 0;
         ListNode temp = head;
         Stack<Integer> visitedVals = new Stack<>();
         while (temp != null) {
             visitedVals.push(temp.val);
-            counter++;
             temp = temp.next;
         }
-        int mid = counter/2;
-        int currIdx = 0;
-        while (currIdx < mid) {
+        while (head != null) {
             if (head.val != visitedVals.pop()) {
                 return false;
             }
-            currIdx++;
             head = head.next;
         }
         return true;
