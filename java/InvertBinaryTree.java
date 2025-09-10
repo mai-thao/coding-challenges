@@ -1,3 +1,5 @@
+import configs.Config.*;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -5,18 +7,6 @@ import java.util.Queue;
  * Given the root of a binary tree, invert the tree, and return its root.
  */
 public class InvertBinaryTree {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode() {}
-        TreeNode(int val) { this.val = val; }
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     /**
      * Time complexity: O(n) because traversing every node
