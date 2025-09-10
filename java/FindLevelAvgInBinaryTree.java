@@ -1,3 +1,5 @@
+import configs.Config.*;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,19 +14,6 @@ import java.util.Queue;
  * Space complexity: O(n) because using a queue and ArrayList that grows proportionally to the number of nodes
  */
 public class FindLevelAvgInBinaryTree {
-    public static class TreeNode {
-         int val;
-         TreeNode left;
-         TreeNode right;
-         TreeNode() {}
-         TreeNode(int val) { this.val = val; }
-         TreeNode(int val, TreeNode left, TreeNode right) {
-             this.val = val;
-             this.left = left;
-             this.right = right;
-         }
-    }
-
     public static List<Double> averageOfLevels(TreeNode root) {
         ArrayList<Double> result = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();

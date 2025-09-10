@@ -1,3 +1,6 @@
+import configs.Config;
+import configs.Config.*;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -6,18 +9,6 @@ import java.util.Queue;
  * Two binarey trees are the same if they are structurally identical with all the same node values.
  */
 public class CheckSameTree {
-     public static class TreeNode {
-         int val;
-         TreeNode left;
-         TreeNode right;
-         TreeNode() {}
-         TreeNode(int val) { this.val = val; }
-         TreeNode(int val, TreeNode left, TreeNode right) {
-             this.val = val;
-             this.left = left;
-             this.right = right;
-         }
-     }
 
     /**
      * Time complexity: O(n) because traversing every node

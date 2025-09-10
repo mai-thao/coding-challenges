@@ -1,3 +1,5 @@
+import configs.Config.*;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -9,18 +11,6 @@ import java.util.Queue;
  * - Number of nodes in the BST is between [1, 20000]
  */
 public class FindRangeSumOfBinarySearchTree {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode() {}
-        TreeNode(int val) { this.val = val; }
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     /**
      * Iterative approach using BFS with Queue!

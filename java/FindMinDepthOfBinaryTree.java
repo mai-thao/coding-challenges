@@ -1,3 +1,5 @@
+import configs.Config.*;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -6,18 +8,6 @@ import java.util.Queue;
  * path from the root node down to the nearest leaf node. Note: A leaf is a node with no children.
  */
 public class FindMinDepthOfBinaryTree {
-     public static class TreeNode {
-         int val;
-         TreeNode left;
-         TreeNode right;
-         TreeNode() {}
-         TreeNode(int val) { this.val = val; }
-         TreeNode(int val, TreeNode left, TreeNode right) {
-             this.val = val;
-             this.left = left;
-             this.right = right;
-         }
-     }
 
     /**
      * Time complexity: O(n) because traversing every node

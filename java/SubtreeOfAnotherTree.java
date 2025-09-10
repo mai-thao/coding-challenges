@@ -1,3 +1,5 @@
+import configs.Config.*;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -6,18 +8,6 @@ import java.util.Queue;
  * A subtree of a binary tree has the same structure and node values. A subtree could be a subtree of itself.
  */
 public class SubtreeOfAnotherTree {
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode() {}
-        TreeNode(int val) { this.val = val; }
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     /**
      * Time complexity: O(n*m) because traversing all nodes in both `root` and `subRoot` trees
