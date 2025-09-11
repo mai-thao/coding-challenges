@@ -1,9 +1,6 @@
 import configs.Config.*;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 import static configs.Config.buildTree;
 
@@ -14,8 +11,8 @@ public class BinaryTreeTraversal {
      * its nodes' values. (i.e., from left to right, level by level).
      */
     public static List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> results = new LinkedList<>();
-        if (root == null) return results;
+        List<List<Integer>> orders = new LinkedList<>();
+        if (root == null) return orders;
 
         Queue<TreeNode> toBeVisited = new LinkedList<>();
         toBeVisited.offer(root);
@@ -29,17 +26,44 @@ public class BinaryTreeTraversal {
                 if (currNode.left != null) toBeVisited.offer(currNode.left);
                 if (currNode.right != null) toBeVisited.offer(currNode.right);
             }
-            results.add(result);
+            orders.add(result);
         }
-        return results;
+        return orders;
+    }
+
+    /**
+     * Given the root of a binary tree, return the preorder traversal of its nodes' values.
+     */
+    public static List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> orders = new ArrayList<>();
+
+        if (root != null) {
+            orders.add(root.val);
+            orders.addAll(preorderTraversal(root.left));
+            orders.addAll(preorderTraversal(root.right));
+        }
+        return orders;
     }
 
     public static void main(String[] args) {
         // Level order traversal
         TreeNode levelOrderP1 = buildTree(Arrays.asList(3,9,20,null,null,15,7));
-        System.out.println(levelOrder(levelOrderP1));
+        System.out.println(levelOrder(levelOrderP1));                                        // [[3], [9, 20], [15, 7]]
         TreeNode levelOrderP2 = new TreeNode(1);
-        System.out.println(levelOrder(levelOrderP2));
-        System.out.println(levelOrder(null));
+        System.out.println(levelOrder(levelOrderP2));                                        // [[1]]
+        System.out.println(levelOrder(null));                                           // []
+
+        System.out.println();
+
+        // Pre-order traversal (Root, Left, Right)
+        TreeNode preOrderP1 = buildTree(Arrays.asList(1,null,2,3));
+        System.out.println(preorderTraversal(preOrderP1));                                  // [1,2,3]
+        TreeNode preOrderP2 = buildTree(Arrays.asList(1,2,3,4,5,null,8,null,null,6,7,9));
+        System.out.println(preorderTraversal(preOrderP2));                                  // [1,2,4,5,6,7,3,8,9]
+        TreeNode preOrderP3 = new TreeNode(1);
+        System.out.println(preorderTraversal(preOrderP3));                                  // [1]
+        System.out.println(preorderTraversal(null));                                   // []
+
+        System.out.println();
     }
 }
