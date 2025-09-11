@@ -59,7 +59,6 @@ public class BinaryTreeTraversal {
         return orders;
     }
 
-
     public static void main(String[] args) {
         // Level order traversal
         TreeNode levelOrderP1 = buildTree(Arrays.asList(3,9,20,null,null,15,7));
@@ -85,7 +84,7 @@ public class BinaryTreeTraversal {
         TreeNode inOrderP1 = buildTree(Arrays.asList(1,null,2,3));
         System.out.println(inorderTraversal(inOrderP1));                                    // [1,3,2]
         TreeNode inOrderP2 = buildTree(Arrays.asList(1,2,3,4,5,null,8,null,null,6,7,9));
-        System.out.println(inorderTraversal(inOrderP2));                                    // [1,2,3,4,5,null,8,null,null,6,7,9]
+        System.out.println(inorderTraversal(inOrderP2));                                    // [4,2,6,5,7,1,3,9,8]
         TreeNode inOrderP3 = new TreeNode(1);
         System.out.println(inorderTraversal(inOrderP3));                                    // [1]
         System.out.println(inorderTraversal(null));                                    // []
