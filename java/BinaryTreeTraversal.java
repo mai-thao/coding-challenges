@@ -45,6 +45,21 @@ public class BinaryTreeTraversal {
         return orders;
     }
 
+    /**
+     * Given the root of a binary tree, return the inorder traversal of its nodes' values.
+     */
+    public static List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> orders = new ArrayList<>();
+
+        if (root != null) {
+            orders.addAll(inorderTraversal(root.left));
+            orders.add(root.val);
+            orders.addAll(inorderTraversal(root.right));
+        }
+        return orders;
+    }
+
+
     public static void main(String[] args) {
         // Level order traversal
         TreeNode levelOrderP1 = buildTree(Arrays.asList(3,9,20,null,null,15,7));
@@ -63,6 +78,17 @@ public class BinaryTreeTraversal {
         TreeNode preOrderP3 = new TreeNode(1);
         System.out.println(preorderTraversal(preOrderP3));                                  // [1]
         System.out.println(preorderTraversal(null));                                   // []
+
+        System.out.println();
+
+        // Inorder traversal (Left, Root, Right)
+        TreeNode inOrderP1 = buildTree(Arrays.asList(1,null,2,3));
+        System.out.println(inorderTraversal(inOrderP1));                                    // [1,3,2]
+        TreeNode inOrderP2 = buildTree(Arrays.asList(1,2,3,4,5,null,8,null,null,6,7,9));
+        System.out.println(inorderTraversal(inOrderP2));                                    // [1,2,3,4,5,null,8,null,null,6,7,9]
+        TreeNode inOrderP3 = new TreeNode(1);
+        System.out.println(inorderTraversal(inOrderP3));                                    // [1]
+        System.out.println(inorderTraversal(null));                                    // []
 
         System.out.println();
     }
