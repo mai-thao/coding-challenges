@@ -4,6 +4,13 @@ import java.util.*;
 
 import static configs.Config.buildTree;
 
+/**
+ * Given the root of a binary tree, perform different order traversals on it (level order, preorder, inorder, postorder)
+ *
+ * Time complexity: O(n) because visiting each node
+ * Space complexity: O(n) doesn't matter if using a queue or recursion with call stack
+ * - time and space complexities are the same irrespective of which traversal type it is
+ */
 public class BinaryTreeTraversal {
 
     /**
