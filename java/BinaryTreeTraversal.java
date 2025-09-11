@@ -59,6 +59,20 @@ public class BinaryTreeTraversal {
         return orders;
     }
 
+    /**
+     * Given the root of a binary tree, return the postorder traversal of its nodes' values.
+     */
+    public static List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> orders = new ArrayList<>();
+
+        if (root != null) {
+            orders.addAll(postorderTraversal(root.left));
+            orders.addAll(postorderTraversal(root.right));
+            orders.add(root.val);
+        }
+        return orders;
+    }
+
     public static void main(String[] args) {
         // Level order traversal
         TreeNode levelOrderP1 = buildTree(Arrays.asList(3,9,20,null,null,15,7));
@@ -90,5 +104,14 @@ public class BinaryTreeTraversal {
         System.out.println(inorderTraversal(null));                                    // []
 
         System.out.println();
+
+        // Post-order traversal (Left, Right, Root)
+        TreeNode postOrderP1 = buildTree(Arrays.asList(1,null,2,3));
+        System.out.println(postorderTraversal(postOrderP1));                                // [3,2,1]
+        TreeNode postOrderP2 = buildTree(Arrays.asList(1,2,3,4,5,null,8,null,null,6,7,9));
+        System.out.println(postorderTraversal(postOrderP2));                                // [4,6,7,5,2,9,8,3,1]
+        TreeNode postOrderP3 = new TreeNode(1);
+        System.out.println(postorderTraversal(postOrderP3));                                // [1]
+        System.out.println(postorderTraversal(null));                                  // []
     }
 }
