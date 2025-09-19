@@ -5,9 +5,16 @@ import java.util.Arrays;
  * Given a large integer represented as an integer array `digits`, increment the
  * last integer by one and then return the resulting array of digits.
  *
- * Note: `digits` does not contain leading 0's
+ * Constraints:
+ * - 1 <= digits.length <= 100
+ * - 0 <= digits[i] <= 9
+ * - digits does not contain any leading 0's
  */
 public class PlusOne {
+    /**
+     * Time complexity: O(n) because visiting each digit at most once
+     * Space complexity: O(n) because created a new StringBuilder and new array (with constants dropped)
+     */
     public static int[] plusOne(int[] digits) {
         StringBuilder sb = new StringBuilder();
         for (int digit: digits) {
@@ -28,6 +35,10 @@ public class PlusOne {
         return resultDigits;
     }
 
+    /**
+     * Time complexity: O(n) because visiting each digit at most one time
+     * Space complexity: O(n) because worst case we need a new array when all digits are 9's
+     */
     public static int[] plusOneArithmetic(int[] digits) {
         int lastIdx = digits.length - 1;
         if (digits[lastIdx] < 9) {
