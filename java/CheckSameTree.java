@@ -1,7 +1,10 @@
 import configs.Config.*;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
+
+import static configs.Config.buildTree;
 
 /**
  * Given the roots of two binary trees `p` and `q`, write a function to check if they are the same or not.
@@ -55,40 +58,26 @@ public class CheckSameTree {
 
     public static void main(String[] args) {
         // ------------- TEST 1 ---------------
-         
-        TreeNode t1PNode2 = new TreeNode(2);
-        TreeNode t1PNode3 = new TreeNode(3);
-        TreeNode t1PNode1 = new TreeNode(1, t1PNode2, t1PNode3); // [1,2,3]
+        TreeNode p1Node1 = buildTree(Arrays.asList(1,2,3));
+        TreeNode p1Node2 = buildTree(Arrays.asList(1,2,3));
 
-        TreeNode t1QNode2 = new TreeNode(2);
-        TreeNode t1QNode3 = new TreeNode(3);
-        TreeNode t1QNode1 = new TreeNode(1, t1QNode2, t1QNode3); // [1,2,3]
-
-        System.out.println("Test 1: " + isSameTree(t1PNode1, t1QNode1)); // true
-        System.out.println("Test 1 (Recursive): " + isSameTreeRecursive(t1PNode1, t1QNode1)); // true
+        System.out.println("Test 1: " + isSameTree(p1Node1, p1Node2)); // true
+        System.out.println("Test 1 (Recursive): " + isSameTreeRecursive(p1Node1, p1Node2)); // true
 
         // ------------- TEST 2 ---------------
-         
-        TreeNode t2PNode2 = new TreeNode(2);
-        TreeNode t2PNode1 = new TreeNode(1, t2PNode2, null); // [1,2]
 
-        TreeNode t2QNode2 = new TreeNode(2);
-        TreeNode t2QNode1 = new TreeNode(1, null, t2QNode2); // [1,null,2]
+        TreeNode p2Node1 = buildTree(Arrays.asList(1,2));
+        TreeNode p2Node2 = buildTree(Arrays.asList(1,null,2));
 
-        System.out.println("Test 2: " + isSameTree(t2PNode1, t2QNode1)); // false
-        System.out.println("Test 2 (Recursive): " + isSameTreeRecursive(t2PNode1, t2QNode1)); // false
+        System.out.println("Test 2: " + isSameTree(p2Node1, p2Node2)); // false
+        System.out.println("Test 2 (Recursive): " + isSameTreeRecursive(p2Node1, p2Node2)); // false
 
         // ------------- TEST 3 ---------------
-         
-        TreeNode t3PNode2 = new TreeNode(2);
-        TreeNode t3PNode3 = new TreeNode(1);
-        TreeNode t3PNode1 = new TreeNode(1, t3PNode2, t3PNode3); // [1,2,1]
 
-        TreeNode t3QNode2 = new TreeNode(1);
-        TreeNode t3QNode3 = new TreeNode(2);
-        TreeNode t3QNode1 = new TreeNode(1, t3QNode2, t3QNode3); // [1,1,2]
+        TreeNode p3Node1 = buildTree(Arrays.asList(1,2,1));
+        TreeNode p3Node2 = buildTree(Arrays.asList(1,1,2));
 
-        System.out.println("Test 3: " + isSameTree(t3PNode1, t3QNode1)); // false
-        System.out.println("Test 3 (Recursive): " + isSameTreeRecursive(t3PNode1, t3QNode1)); // false
+        System.out.println("Test 3: " + isSameTree(p3Node1, p3Node2)); // false
+        System.out.println("Test 3 (Recursive): " + isSameTreeRecursive(p3Node1, p3Node2)); // false
     }
 }
