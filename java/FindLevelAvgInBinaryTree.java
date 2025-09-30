@@ -1,9 +1,8 @@
 import configs.Config.*;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
+
+import static configs.Config.buildTree;
 
 /**
  * Given the `root` of a binary tree, return the average value of the nodes on each level in the form of an array.
@@ -38,20 +37,12 @@ public class FindLevelAvgInBinaryTree {
     }
 
     public static void main(String[] args) {
-        TreeNode t1Node15 = new TreeNode(15);
-        TreeNode t1Node7 = new TreeNode(7);
-        TreeNode t1Node20 = new TreeNode(20, t1Node15, t1Node7);
-        TreeNode t1Node9 = new TreeNode(9);
-        TreeNode t1Root = new TreeNode(3, t1Node9, t1Node20);
+        TreeNode t1Root = buildTree(Arrays.asList(3,9,20,null,null,15,7));
         System.out.println(averageOfLevels(t1Root)); // [3,9,20,null,null,15,7] -> [3.0,14.5,11.0]
 
-        TreeNode t2Node15 = new TreeNode(15);
-        TreeNode t2Node7 = new TreeNode(7);
-        TreeNode t2Node9 = new TreeNode(9, t2Node15, t2Node7);
-        TreeNode t2Node20 = new TreeNode(20);
-        TreeNode t2Root = new TreeNode(3, t2Node9, t2Node20);
+        TreeNode t2Root = buildTree(Arrays.asList(3,9,20,15,7));
         System.out.println(averageOfLevels(t2Root)); // [3,9,20,15,7] -> [3.0,14.5,11.0]
 
-        System.out.println(averageOfLevels(new TreeNode(10))); // [10] -> [10]
+        System.out.println(averageOfLevels(new TreeNode(10))); // [10] -> [10.0]
     }
 }
