@@ -1,7 +1,10 @@
 import configs.Config.*;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
+
+import static configs.Config.buildTree;
 
 /**
  * Given the root node of a binary search tree and two integers low and high,
@@ -60,25 +63,14 @@ public class FindRangeSumOfBinarySearchTree {
     }
 
     public static void main(String[] args) {
-        TreeNode p1Node3 = new TreeNode(3);
-        TreeNode P1Node7 = new TreeNode(7);
-        TreeNode p1Node5 = new TreeNode(5, p1Node3, P1Node7);
-        TreeNode p1Node18 = new TreeNode(18);
-        TreeNode p1Node15 = new TreeNode(15, null, p1Node18);
-        TreeNode p1rootNode10 = new TreeNode(10, p1Node5, p1Node15);
-        System.out.println(rangeSumBSTWithBFS(p1rootNode10, 7, 15)); // 32
-        System.out.println(rangeSumBSTWithDFS(p1rootNode10, 7, 15)); // 32
+        TreeNode p1Root = buildTree(Arrays.asList(10,5,15,3,7,null,18));
+        System.out.println(rangeSumBSTWithBFS(p1Root, 7, 15)); // 32
+        System.out.println(rangeSumBSTWithDFS(p1Root, 7, 15)); // 32
 
-        TreeNode p2Node1 = new TreeNode(1);
-        TreeNode p2Node3 = new TreeNode(3, p2Node1, null);
-        TreeNode p2Node6 = new TreeNode(6);
-        TreeNode p2Node7 = new TreeNode(7, p2Node6, null);
-        TreeNode p2Node5 = new TreeNode(5, p2Node3, p2Node7);
-        TreeNode p2Node13 = new TreeNode(13);
-        TreeNode p2Node18 = new TreeNode(18);
-        TreeNode p2Node15 = new TreeNode(15, p2Node13, p2Node18);
-        TreeNode p2rootNode10 = new TreeNode(10, p2Node5, p2Node15);
-        System.out.println(rangeSumBSTWithBFS(p2rootNode10, 6, 10)); // 23
-        System.out.println(rangeSumBSTWithDFS(p2rootNode10, 6, 10)); // 23
+        System.out.println();
+
+        TreeNode p2Root = buildTree(Arrays.asList(10,5,15,3,7,13,18,1,null,6));
+        System.out.println(rangeSumBSTWithBFS(p2Root, 6, 10)); // 23
+        System.out.println(rangeSumBSTWithDFS(p2Root, 6, 10)); // 23
     }
 }
