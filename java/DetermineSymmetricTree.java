@@ -1,7 +1,10 @@
 import configs.Config.*;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
+
+import static configs.Config.buildTree;
 
 /**
  * Given the root of a binary tree, check whether it is a mirror of itself (i.e. symmetric around its center).
@@ -55,23 +58,13 @@ public class DetermineSymmetricTree {
     }
 
     public static void main(String[] args) {
-        TreeNode t1LeftNode3 = new TreeNode(3);
-        TreeNode t1LeftNode4 = new TreeNode(4);
-        TreeNode t1LeftNode2 = new TreeNode(2, t1LeftNode3, t1LeftNode4);
-        TreeNode t1RightNode4 = new TreeNode(4);
-        TreeNode t1RightNode3 = new TreeNode(3);
-        TreeNode t1RightNode2 = new TreeNode(2, t1RightNode4, t1RightNode3);
-        TreeNode t1Root = new TreeNode(1, t1LeftNode2, t1RightNode2);
+        TreeNode t1Root = buildTree(Arrays.asList(1,2,2,3,4,4,3));
         System.out.println(isSymmetric(t1Root)); // [1,2,2,3,4,4,3] -> true
         System.out.println(isSymmetricRecursive(t1Root));
 
         System.out.println();
 
-        TreeNode t2LeftNode3 = new TreeNode(3);
-        TreeNode t2LeftNode2 = new TreeNode(2, null, t2LeftNode3);
-        TreeNode t2RightNode3 = new TreeNode(3);
-        TreeNode t2RightNode2 = new TreeNode(2, null, t2RightNode3);
-        TreeNode t2Root = new TreeNode(1, t2LeftNode2, t2RightNode2);
+        TreeNode t2Root = buildTree(Arrays.asList(1,2,2,null,3,null,3));
         System.out.println(isSymmetric(t2Root)); // [1,2,2,null,3,null,3] -> false
         System.out.println(isSymmetricRecursive(t2Root));
 
