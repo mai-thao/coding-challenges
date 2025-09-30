@@ -15,7 +15,7 @@
  * INPUT: s = " "
  * OUTPUT: true because an empty string reads the same backward and forward
  */
-class ValidPalindrome {
+class ValidPalindromeString {
     /**
      * Time complexity: O(n) because both the for-loop and while-loop traverses the entire String
      * Space complexity: O(n) because needed a StringBuilder where worst case could store all characters
