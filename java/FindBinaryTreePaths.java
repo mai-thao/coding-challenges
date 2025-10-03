@@ -6,6 +6,15 @@ import java.util.List;
 
 import static configs.Config.buildTree;
 
+/**
+ * Given the root of a binary tree, return all root-to-leaf paths in any order.
+ * A leaf is a node with no children.
+ *
+ * Constraint: The number of nodes in the tree is in the range [1, 100].
+ *
+ * Time complexity: O(n) because visiting each node once
+ * Space complexity: O(n) because of recursive call stack in worst case of skewed tree
+ */
 public class FindBinaryTreePaths {
     public static List<String> binaryTreePaths(TreeNode root) {
         List<String> paths = new LinkedList<>();
