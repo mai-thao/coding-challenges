@@ -1,5 +1,7 @@
 ﻿# coding-challenges
-My solutions to various coding challenges and puzzles. Think of [Leetcode](https://leetcode.com/), [Neetcode](https://neetcode.io/), and [Cracking The Coding Interview](https://www.crackingthecodinginterview.com/)-style prompts solved in Java, Python, or Go. Exercises different data structure and algorithms.
+My solutions to various coding challenges and puzzles. Think of [Leetcode](https://leetcode.com/), [Neetcode](https://neetcode.io/), and 
+[Cracking The Coding Interview](https://www.crackingthecodinginterview.com/)-style prompts solved in Java, Python, or Go. It exercises 
+different data structure and algorithms to keep my noggin turning!
 
 ### Data Structure
 ```mermaid
@@ -45,4 +47,3 @@ Not an extensive list, but includes:
 * Backtracking
 * Dynamic Programming
 * Bit Manipulation
-
