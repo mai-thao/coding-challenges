@@ -16,14 +16,14 @@ public class AddTwoIntegers {
     public static void main(String[] args) {
         System.out.println(sum(12, 5));     // 17
         System.out.println(sum(-10, 4));    // -6
-        System.out.println(sum(-456, 77));  // -533
+        System.out.println(sum(-456, 77));  // -379
         System.out.println(sum(0, 0));      // 0
 
         System.out.println();
 
         System.out.println(stringSum("12", "5"));      // 17
         System.out.println(stringSum("-10", "4"));     // -6
-        System.out.println(stringSum("-456", "77"));   // 533
+        System.out.println(stringSum("-456", "77"));   // -379
         System.out.println(stringSum("0", "0"));       // 0
     }
 }
