@@ -35,10 +35,8 @@ func calculatePoints(operations []string) int {
         } else if operation == "C" {
             scoreStack = scoreStack[:stackLen - 1]
         } else {
-            intVal, err := strconv.Atoi(operation)
-            if err == nil {
-                scoreStack = append(scoreStack, intVal)
-            }
+            intVal, _ := strconv.Atoi(operation)
+            scoreStack = append(scoreStack, intVal)
         }
     }
     var sum int
