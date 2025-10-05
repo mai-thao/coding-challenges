@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+    "fmt"
+    "strconv"
+)
 
 /*
  * Given a string of operations, return the sum of all the records after applying each operation.
@@ -15,12 +18,34 @@ import "fmt"
  * For operation "+", there will always be at least two previous scores on the record.
  * For operations "C" and "D", there will always be at least one previous score on the record.
  *
- * Time complexity: O(n) since traversing each String in the array
- * Space complexity: O(n) since created a Stack to hold the score integers
+ * Time complexity: O(n) since traversing each string (aka each operation) in the array
+ * Space complexity: O(n) since created a stack "slice" to hold the score integers
  */
 func calculatePoints(operations []string) int {
-    // TODO: Implement my own Stack type? Can it be if-else or case statements?
-    return 0
+    scoreStack := []int{}
+    for _, operation := range operations {
+        stackLen := len(scoreStack)
+        if operation == "+" {
+            firstPrev := scoreStack[stackLen - 1]
+            secondPrev := scoreStack[stackLen - 2]
+            scoreStack = append(scoreStack, firstPrev + secondPrev)
+        } else if operation == "D" {
+            prev := scoreStack[stackLen - 1]
+            scoreStack = append(scoreStack, prev * 2)
+        } else if operation == "C" {
+            scoreStack = scoreStack[:stackLen - 1]
+        } else {
+            intVal, err := strconv.Atoi(operation)
+            if err == nil {
+                scoreStack = append(scoreStack, intVal)
+            }
+        }
+    }
+    var sum int
+    for _, score := range scoreStack {
+        sum += score
+    }
+    return sum
 }
 
 func main() {
