@@ -2,9 +2,9 @@ import java.util.Arrays;
 
 /**
  * Given an array `a`, return a new array `b` of the same length by applying the following transformations:
- * - For each i from 0 to a.length - 1 inclusive, b[i] = a[i-1] + a[i] + a[i+1]
- * - If an element in the sum a[i-1] + a[i] + a[i+1] does not exist, use 0 in its place
- * - For instance, b[0] = 0 + a[0] + a[1]
+ * - For each i from 0 to `a.length - 1` inclusive, `b[i] = a[i-1] + a[i] + a[i+1]`
+ * - If an element in the sum `a[i-1] + a[i] + a[i+1]` does not exist, use 0 in its place
+ * - For instance, `b[0] = 0 + a[0] + a[1]`
  *
  * Time complexity: O(n) because traversing each element in the array at least once
  * Space complexity: O(n) because created a new int array the same size as input array
