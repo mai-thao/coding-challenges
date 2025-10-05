@@ -27,9 +27,9 @@ func applyTransformation(a []int) []int {
 }
 
 func main() {
-    fmt.Println(applyTransformation([]int{4,0,1,-2,3}))     // [4,5,-1,2,1]
+    fmt.Println(applyTransformation([]int{4,0,1,-2,3}))     // [4 5 -1 2 1]
     fmt.Println(applyTransformation([]int{5}))              // [5]
     fmt.Println(applyTransformation([]int{}))               // []
-    fmt.Println(applyTransformation([]int{9,9,9,9}))        // [18,27,27,18]
-    fmt.Println(applyTransformation([]int{-9,-9,-9,-9}))    // [-18,-27,-27,-18]
+    fmt.Println(applyTransformation([]int{9,9,9,9}))        // [18 27 27 18]
+    fmt.Println(applyTransformation([]int{-9,-9,-9,-9}))    // [-18 -27 -27 -18]
 }
