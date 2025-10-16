@@ -17,9 +17,9 @@ func maxProfit(prices []int) int {
     minProfit := math.MaxInt
     maxProfit := 0
     for _, price := range prices {
-        minProfit = int(math.Min(float64(price), float64(minProfit)))
+        minProfit = min(price, minProfit)
         profit := price - minProfit
-        maxProfit = int(math.Max(float64(profit), float64(maxProfit)))
+        maxProfit = max(profit, maxProfit)
     }
     return maxProfit
 }
